@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1665A223248D166100926AA4 /* ScoreStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665A222248D166100926AA4 /* ScoreStarsView.swift */; };
+		1665A225248D4F7800926AA4 /* ScoreRobotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665A224248D4F7800926AA4 /* ScoreRobotView.swift */; };
+		1665A227248DC56000926AA4 /* RobotSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665A226248DC56000926AA4 /* RobotSounds.swift */; };
+		1665A229248DC6D200926AA4 /* robot-sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1665A228248DC6D200926AA4 /* robot-sound1.mp3 */; };
+		1665A22B248DCCD100926AA4 /* robot-sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1665A22A248DCCD100926AA4 /* robot-sound2.mp3 */; };
+		1665A22D248DCE2B00926AA4 /* robot-sound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1665A22C248DCE2B00926AA4 /* robot-sound3.mp3 */; };
 		1665D43B248B93C400B59876 /* BlockAngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665D43A248B93C400B59876 /* BlockAngleView.swift */; };
 		1665D43D248B9F0200B59876 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1665D43C248B9EFD00B59876 /* Gilroy-Regular.ttf */; };
 		1665D43F248BB0F100B59876 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665D43E248BB0F100B59876 /* MoneyView.swift */; };
@@ -41,6 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1665A222248D166100926AA4 /* ScoreStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreStarsView.swift; sourceTree = "<group>"; };
+		1665A224248D4F7800926AA4 /* ScoreRobotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRobotView.swift; sourceTree = "<group>"; };
+		1665A226248DC56000926AA4 /* RobotSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotSounds.swift; sourceTree = "<group>"; };
+		1665A228248DC6D200926AA4 /* robot-sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "robot-sound1.mp3"; sourceTree = "<group>"; };
+		1665A22A248DCCD100926AA4 /* robot-sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "robot-sound2.mp3"; sourceTree = "<group>"; };
+		1665A22C248DCE2B00926AA4 /* robot-sound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "robot-sound3.mp3"; sourceTree = "<group>"; };
 		1665D43A248B93C400B59876 /* BlockAngleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockAngleView.swift; sourceTree = "<group>"; };
 		1665D43C248B9EFD00B59876 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		1665D43E248BB0F100B59876 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
@@ -105,6 +117,9 @@
 				1665D442248C036400B59876 /* ScoreWaveView.swift */,
 				1665D446248C205A00B59876 /* ScoreBlockView.swift */,
 				1665D448248C32CA00B59876 /* ScoreDiamondView.swift */,
+				1665A222248D166100926AA4 /* ScoreStarsView.swift */,
+				1665A224248D4F7800926AA4 /* ScoreRobotView.swift */,
+				1665A226248DC56000926AA4 /* RobotSounds.swift */,
 			);
 			path = PaintCode;
 			sourceTree = "<group>";
@@ -149,6 +164,9 @@
 		16A49F372488E4A400093569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1665A22C248DCE2B00926AA4 /* robot-sound3.mp3 */,
+				1665A22A248DCCD100926AA4 /* robot-sound2.mp3 */,
+				1665A228248DC6D200926AA4 /* robot-sound1.mp3 */,
 				16A49F382488E4B500093569 /* Fonts */,
 			);
 			path = Resources;
@@ -192,13 +210,13 @@
 		16A49F422489031E00093569 /* StartMenu */ = {
 			isa = PBXGroup;
 			children = (
-				16A49F432489033B00093569 /* Views */,
+				16A49F432489033B00093569 /* PaintCode */,
 				16A49F232488E22B00093569 /* ViewController.swift */,
 			);
 			path = StartMenu;
 			sourceTree = "<group>";
 		};
-		16A49F432489033B00093569 /* Views */ = {
+		16A49F432489033B00093569 /* PaintCode */ = {
 			isa = PBXGroup;
 			children = (
 				16A49F352488E3EF00093569 /* LogoView.swift */,
@@ -206,7 +224,7 @@
 				16A49F3D248900C000093569 /* ButtonView.swift */,
 				16A49F4924890DCC00093569 /* MarkOnButtonView.swift */,
 			);
-			path = Views;
+			path = PaintCode;
 			sourceTree = "<group>";
 		};
 		16A49F442489035900093569 /* StyleKit */ = {
@@ -220,13 +238,13 @@
 		16A49F4B24891B8C00093569 /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				16A49F5024891EB100093569 /* Views */,
+				16A49F5024891EB100093569 /* PaintCode */,
 				16A49F4E24891E9600093569 /* PlayViewController.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
 		};
-		16A49F5024891EB100093569 /* Views */ = {
+		16A49F5024891EB100093569 /* PaintCode */ = {
 			isa = PBXGroup;
 			children = (
 				16A49F4C24891BD100093569 /* BottomHoneycombsView.swift */,
@@ -238,7 +256,7 @@
 				1665D43A248B93C400B59876 /* BlockAngleView.swift */,
 				1665D43E248BB0F100B59876 /* MoneyView.swift */,
 			);
-			path = Views;
+			path = PaintCode;
 			sourceTree = "<group>";
 		};
 		16A49F532489483400093569 /* Extensions */ = {
@@ -338,6 +356,9 @@
 				16A49F2C2488E22D00093569 /* LaunchScreen.storyboard in Resources */,
 				1665D43D248B9F0200B59876 /* Gilroy-Regular.ttf in Resources */,
 				16A49F3C2488E55F00093569 /* Play-Bold.ttf in Resources */,
+				1665A22D248DCE2B00926AA4 /* robot-sound3.mp3 in Resources */,
+				1665A229248DC6D200926AA4 /* robot-sound1.mp3 in Resources */,
+				1665A22B248DCCD100926AA4 /* robot-sound2.mp3 in Resources */,
 				16A49F3B2488E55F00093569 /* Play-Regular.ttf in Resources */,
 				16A49F272488E22B00093569 /* Main.storyboard in Resources */,
 				16E75837248A508700E29D91 /* Assets.xcassets in Resources */,
@@ -393,14 +414,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1665A225248D4F7800926AA4 /* ScoreRobotView.swift in Sources */,
 				16A49F4A24890DCC00093569 /* MarkOnButtonView.swift in Sources */,
 				1665D445248C12F800B59876 /* ScoreViewController.swift in Sources */,
 				16A49F6824898CF600093569 /* TopView.swift in Sources */,
 				16A49F362488E3EF00093569 /* LogoView.swift in Sources */,
+				1665A223248D166100926AA4 /* ScoreStarsView.swift in Sources */,
 				1665D449248C32CA00B59876 /* ScoreDiamondView.swift in Sources */,
 				1665D43B248B93C400B59876 /* BlockAngleView.swift in Sources */,
 				16A49F5824894C0600093569 /* TabBarView.swift in Sources */,
 				1665D43F248BB0F100B59876 /* MoneyView.swift in Sources */,
+				1665A227248DC56000926AA4 /* RobotSounds.swift in Sources */,
 				1665D447248C205A00B59876 /* ScoreBlockView.swift in Sources */,
 				16A49F342488E3B800093569 /* TBMStyleKit.swift in Sources */,
 				16A49F3E248900C000093569 /* ButtonView.swift in Sources */,

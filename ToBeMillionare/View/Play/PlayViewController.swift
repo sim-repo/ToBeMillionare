@@ -13,7 +13,6 @@ class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorSetup()
-        
         timerSetup()
     }
     
@@ -23,7 +22,7 @@ class PlayViewController: UIViewController {
         bottomBCQView.fadeView(style: .top, percentage: 1.0)
     }
     
- 
+
     @IBAction func pressButton(_ sender: Any) {
         performSegue(withIdentifier: "SegueScore", sender: nil)
     }

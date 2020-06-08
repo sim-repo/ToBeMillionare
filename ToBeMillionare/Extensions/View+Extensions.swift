@@ -29,6 +29,8 @@ extension UIView {
         gradient.frame = bounds
         gradient.colors = [color.cgColor, UIColor.clear.cgColor]
         
+        print(bounds)
+        
         let startLocation = percentage
         let endLocation = 1 - percentage
         
