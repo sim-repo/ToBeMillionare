@@ -9,50 +9,66 @@
 import UIKit
 
 class MoneyView: UIView {
-
-    private var roundNum: Int = 0
+    
+    private var levelEnum: LevelEnum = .level1
+    
+    // timer vars:
+    private var timer: Timer?
+    
+    
+    private var completion: (()->Void)?
     
     required init?(coder: NSCoder) {
-       super.init(coder: coder)
-       backgroundColor = .clear
+        super.init(coder: coder)
+        backgroundColor = .clear
     }
-       
     
-    @IBInspectable var roundNumInspectable: Int {
-           set { roundNum = newValue }
-           get { return roundNum }
-    }
     
     override func draw(_ rect: CGRect) {
-        switch roundNum {
-        case 1:
+        switch levelEnum {
+        case .level1:
+            TBMStyleKit.drawMoneyRound0(frame: bounds)
+        case .level2:
             TBMStyleKit.drawMoneyRound1(frame: bounds)
-        case 2:
+        case .level3:
             TBMStyleKit.drawMoneyRound2(frame: bounds)
-        case 3:
+        case .level4:
             TBMStyleKit.drawMoneyRound3(frame: bounds)
-        case 4:
+        case .level5:
             TBMStyleKit.drawMoneyRound4(frame: bounds)
-        case 5:
+        case .level6:
             TBMStyleKit.drawMoneyRound5(frame: bounds)
-        case 6:
+        case .level7:
             TBMStyleKit.drawMoneyRound6(frame: bounds)
-        case 7:
+        case .level8:
             TBMStyleKit.drawMoneyRound7(frame: bounds)
-        case 8:
+        case .level9:
             TBMStyleKit.drawMoneyRound8(frame: bounds)
-        case 9:
+        case .level10:
             TBMStyleKit.drawMoneyRound9(frame: bounds)
-        case 10:
+        case .level11:
             TBMStyleKit.drawMoneyRound10(frame: bounds)
-        case 11:
+        case .level12:
             TBMStyleKit.drawMoneyRound11(frame: bounds)
-        case 12:
+        case .level13:
             TBMStyleKit.drawMoneyRound12(frame: bounds)
-        case 13:
-            TBMStyleKit.drawMoneyRound13(frame: bounds)
         default:
             TBMStyleKit.drawMoneyRound1(frame: bounds)
         }
+    }
+    
+    
+    func startAnimate(_ levelEnum: LevelEnum, _ completion: (()->Void)? = nil) {
+        self.levelEnum = levelEnum
+        setNeedsDisplay()
+        self.completion = completion
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.startCompletion), userInfo: nil, repeats: false)
+    }
+    
+    
+    @objc private func startCompletion(){
+        timer?.invalidate()
+        completion?()
     }
 }

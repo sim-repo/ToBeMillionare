@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ScoreRobotView: UIView {
 
+
+class ScoreRobotView: UIView {
+    
     // timer vars:
     private var timer: Timer?
-
+    
     
     // control vars:
     var robotHeight: CGFloat = 667
     var robotHeightStep: CGFloat = 2
     var robotArmLen: CGFloat = 20
     var robotArmStep: CGFloat = 2
-    var robotTake: CGFloat = 24
+    var robotTake: CGFloat = 30
     var robotTakeStep: CGFloat = 1
     var isTook = true
     
@@ -41,10 +43,25 @@ class ScoreRobotView: UIView {
     var fingersLen: CGFloat = 32
     
     
+    // operations:
+    var upAndDown: (()->Void)?
+    var reachout: (()->Void)?
+    var hide: (()->Void)?
+    var put: (()->Void)?
+    var take: (()->Void)?
+    
+    var sequence: [(()->Void)?] = []
+    var currOperationNum = 0
+    
+    
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         backgroundColor = .clear
+        setupOperations()
     }
+    
+    
     
     override func draw(_ rect: CGRect) {
         TBMStyleKit.drawRobot(frame: bounds,
@@ -53,10 +70,51 @@ class ScoreRobotView: UIView {
                               robotTake: robotTake,
                               robotReachOut: robotArmLen)
     }
-
     
-
-    public func startAnimate(point: CGPoint) {
+    
+    private func setupOperations(){
+        
+        upAndDown = { [weak self] in
+            guard let self = self else { return }
+            let key = self.sorted[self.currIdx]
+            self.setTargetPoint(point: self.coordinates[key]!)
+            self.startUpAndDown()
+        }
+        
+        reachout = {[weak self] in
+            self?.startReachOut()
+        }
+        
+        put = {[weak self] in
+            self?.startPut()
+        }
+        
+        take = {[weak self] in
+            self?.startTake()
+        }
+        
+        hide = {[weak self] in
+            self?.startHideHand()
+        }
+    }
+    
+    
+    private func setHand(clenched: Bool = false) {
+        robotTake = clenched ? getClenched() : getOpened()
+    }
+    
+    
+    private func getClenched() -> CGFloat {
+        return 24
+    }
+    
+    
+    private func getOpened() -> CGFloat {
+        return 30
+    }
+    
+    
+    private func setTargetPoint(point: CGPoint) {
         let screenSize = UIScreen.main.bounds
         let screenHeight = screenSize.height
         let ratioY = screenHeight / maxCanvasHeight // 1.34333
@@ -64,27 +122,76 @@ class ScoreRobotView: UIView {
         let screenWidth = screenSize.width
         let ratioX = screenWidth / maxCanvasWidth // 1.34333
         localTargetX = point.x / ratioX - fingersLen
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawHeight), userInfo: nil, repeats: true)
     }
     
     
-    public func calibration(coordinates: [Int: CGPoint], robotDelegates: [Int: RobotCompatibleProtocolDelegate]){
+    public func putOnly(coordinates: [Int: CGPoint], robotDelegates: [Int: RobotCompatibleProtocolDelegate]) {
         self.coordinates = coordinates
         self.robotDelegates = robotDelegates
         scoreCount = coordinates.count
         //let key = Array(coordinates)[0].key
         sorted = coordinates.keys.sorted(by: {$0 < $1})
         let key = sorted[0]
-        startAnimate(point: self.coordinates[key]!)
+        
+        setHand(clenched: true)
+        sequence.append(upAndDown)
+        sequence.append(reachout)
+        sequence.append(put)
+        sequence.append(hide)
+        
+        
+        setTargetPoint(point: self.coordinates[key]!)
+        currOperationNum = -1
+        startNextOperation()
+    }
+    
+    
+    public func takeAndPut(coordinates: [Int: CGPoint], robotDelegates: [Int: RobotCompatibleProtocolDelegate]) {
+        self.coordinates = coordinates
+        self.robotDelegates = robotDelegates
+        scoreCount = coordinates.count
+        //let key = Array(coordinates)[0].key
+        sorted = coordinates.keys.sorted(by: {$0 < $1})
+        let key = sorted[0]
+        
+        setHand(clenched: false)
+        sequence.append(upAndDown)
+        sequence.append(reachout)
+        sequence.append(take)
+        sequence.append(hide)
+        sequence.append(upAndDown)
+        sequence.append(reachout)
+        sequence.append(put)
+        sequence.append(hide)
+        
+        setTargetPoint(point: self.coordinates[key]!)
+        currOperationNum = -1
+        startNextOperation()
+    }
+    
+    
+    private func startNextOperation(){
+        if sequence.count - 1 > currOperationNum {
+            currOperationNum += 1
+            let operation = sequence[currOperationNum]
+            operation?()
+        }
     }
 }
+
+
 
 
 //MARK: - hand up/down
 
 extension ScoreRobotView {
     
-    @objc private func redrawHeight(){
+    private func startUpAndDown() {
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawUpAndDown), userInfo: nil, repeats: true)
+    }
+    
+    
+    @objc private func redrawUpAndDown(){
         
         if robotHeight < localTargetY {
             robotHeight += robotHeightStep
@@ -98,7 +205,7 @@ extension ScoreRobotView {
         
         if localTargetY-robotHeightStep...localTargetY+robotHeightStep ~= robotHeight {
             timer?.invalidate()
-            startAnimateReachOut()
+            startNextOperation()
         }
     }
 }
@@ -109,11 +216,12 @@ extension ScoreRobotView {
 
 extension ScoreRobotView {
     
-    private func startAnimateReachOut() {
+    private func startReachOut() {
         let filename = "robot-sound3"
         playSound(filename: filename)
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawReachOut), userInfo: nil, repeats: true)
     }
+    
     
     @objc private func redrawReachOut(){
         
@@ -125,17 +233,15 @@ extension ScoreRobotView {
         
         if robotArmLen >= localTargetX {
             timer?.invalidate()
-            if isTook {
-                startAnimatePut()
-            } else {
-                startAnimateTake()
-            }
+            startNextOperation()
         }
     }
     
-    private func startAnimateHideHand() {
+    
+    private func startHideHand() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawHideHand), userInfo: nil, repeats: true)
     }
+    
     
     
     @objc private func redrawHideHand(){
@@ -148,14 +254,7 @@ extension ScoreRobotView {
         
         if robotArmLen < 20 {
             timer?.invalidate()
-            // calibration mode only:
-            if currIdx < coordinates.count - 1 {
-               // currIdx += 1
-                let key = sorted[currIdx]
-                startAnimate(point: coordinates[key]!)
-            } else {
-                coordinates.removeAll()
-            }
+            startNextOperation()
         }
     }
 }
@@ -166,51 +265,52 @@ extension ScoreRobotView {
 
 extension ScoreRobotView {
     
-    private func startAnimateTake() {
+    private func startTake() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawTake), userInfo: nil, repeats: true)
     }
     
     
     @objc private func redrawTake(){
         
-        if robotTake > 24 {
+        if robotTake > getClenched() {
             robotTake -= robotTakeStep
         }
         
         self.setNeedsDisplay()
         
-        if robotTake <= 24 {
+        if robotTake <= getClenched() {
             isTook = true
             
             let key = sorted[currIdx]
             currIdx += 1
             robotDelegates[key]?.didTake()
             timer?.invalidate()
-            startAnimateHideHand()
+            
+            startNextOperation()
         }
     }
     
     
-    private func startAnimatePut() {
+    private func startPut() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawPut), userInfo: nil, repeats: true)
     }
     
     
     @objc private func redrawPut(){
         
-        if robotTake < 30 {
+        if robotTake < getOpened() {
             robotTake += robotTakeStep
         }
         
         self.setNeedsDisplay()
         
-        if robotTake >= 30 {
+        if robotTake >= getOpened() {
             isTook = false
             
             let key = sorted[currIdx]
             robotDelegates[key]?.didPut()
             timer?.invalidate()
-            startAnimateHideHand()
+            startNextOperation()
         }
     }
 }

@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
     }
 
@@ -38,6 +37,16 @@ class ViewController: UIViewController {
     @IBAction func pressPlay(_ sender: Any) {
         performSegue(withIdentifier: "SeguePlay", sender: nil)
     }
+    
+    
+    @IBAction func pressLeaderboard(_ sender: Any) {
+        performSegue(withIdentifier: "SegueLeaderboard", sender: nil)
+    }
+    
+    @IBAction func pressOptions(_ sender: Any) {
+        performSegue(withIdentifier: "SegueOptions", sender: nil)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SeguePlay" {
