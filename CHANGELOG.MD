@@ -9,8 +9,8 @@ ENHANCEMENTS:
 Redesigned screen "Main Game Scene": added animation, coins
 
 
-
-
+<br>
+<br>
 
 20.06.17 (June 17, 2020)
 
