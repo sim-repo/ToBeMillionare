@@ -91,6 +91,12 @@
 		16E7583B248A5F1700E29D91 /* FiftyPercentHintIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E7583A248A5F1700E29D91 /* FiftyPercentHintIconView.swift */; };
 		16E7583D248A697700E29D91 /* CallFriendIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E7583C248A697700E29D91 /* CallFriendIconView.swift */; };
 		16E7583F248AF0B000E29D91 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E7583E248AF0B000E29D91 /* AnswerView.swift */; };
+		16F0BDFA249B529C00CE9A68 /* FinishWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0BDF9249B529C00CE9A68 /* FinishWaveView.swift */; };
+		16F0BDFC249B7C5200CE9A68 /* FinishPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0BDFB249B7C5200CE9A68 /* FinishPresenter.swift */; };
+		16F0BDFE249BD41100CE9A68 /* DynamicFrameEdgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0BDFD249BD41100CE9A68 /* DynamicFrameEdgesView.swift */; };
+		16F0BE00249BEFB800CE9A68 /* Enum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0BDFF249BEFB800CE9A68 /* Enum+Extensions.swift */; };
+		16F0BE02249BEFE300CE9A68 /* AwardEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0BE01249BEFE300CE9A68 /* AwardEnum.swift */; };
+		16F0BE05249BF25D00CE9A68 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0BE04249BF25D00CE9A68 /* GameOverViewController.swift */; };
 		83A5C1CE12938B2F88161CB7 /* Pods_ToBeMillionare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E63F836D0B24B5FBBC9FA3 /* Pods_ToBeMillionare.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +187,12 @@
 		16E7583A248A5F1700E29D91 /* FiftyPercentHintIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiftyPercentHintIconView.swift; sourceTree = "<group>"; };
 		16E7583C248A697700E29D91 /* CallFriendIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallFriendIconView.swift; sourceTree = "<group>"; };
 		16E7583E248AF0B000E29D91 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
+		16F0BDF9249B529C00CE9A68 /* FinishWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishWaveView.swift; sourceTree = "<group>"; };
+		16F0BDFB249B7C5200CE9A68 /* FinishPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPresenter.swift; sourceTree = "<group>"; };
+		16F0BDFD249BD41100CE9A68 /* DynamicFrameEdgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFrameEdgesView.swift; sourceTree = "<group>"; };
+		16F0BDFF249BEFB800CE9A68 /* Enum+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Extensions.swift"; sourceTree = "<group>"; };
+		16F0BE01249BEFE300CE9A68 /* AwardEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardEnum.swift; sourceTree = "<group>"; };
+		16F0BE04249BF25D00CE9A68 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		86CBBBD73F9A7B50007F8DA9 /* Pods-ToBeMillionare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToBeMillionare.release.xcconfig"; path = "Target Support Files/Pods-ToBeMillionare/Pods-ToBeMillionare.release.xcconfig"; sourceTree = "<group>"; };
 		93E63F836D0B24B5FBBC9FA3 /* Pods_ToBeMillionare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToBeMillionare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B082179A958A6FD64C290F14 /* Pods-ToBeMillionare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToBeMillionare.debug.xcconfig"; path = "Target Support Files/Pods-ToBeMillionare/Pods-ToBeMillionare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +352,7 @@
 				16608BBB2494EC0200A91489 /* ModuleEnum.swift */,
 				16A0CBA22496D8CD008A74AA /* AgeGroup.swift */,
 				16AB97842498F15600DC5D74 /* OccupationEnum.swift */,
+				16F0BE01249BEFE300CE9A68 /* AwardEnum.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -551,6 +564,7 @@
 		16A49F40248902F600093569 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16F0BE03249BF23300CE9A68 /* Game Over */,
 				16AB97872499413800DC5D74 /* Finish */,
 				16A0CB982496D1D9008A74AA /* Create Profile */,
 				1699B468249029DD00928FA8 /* Select Profile */,
@@ -641,6 +655,7 @@
 			children = (
 				16A49F542489484900093569 /* View+Extensions.swift */,
 				16A49F5F248959FD00093569 /* RoundedView.swift */,
+				16F0BDFF249BEFB800CE9A68 /* Enum+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -672,6 +687,7 @@
 		16AB978624993B6300DC5D74 /* Finish */ = {
 			isa = PBXGroup;
 			children = (
+				16F0BDFB249B7C5200CE9A68 /* FinishPresenter.swift */,
 			);
 			path = Finish;
 			sourceTree = "<group>";
@@ -679,9 +695,27 @@
 		16AB97872499413800DC5D74 /* Finish */ = {
 			isa = PBXGroup;
 			children = (
+				16F0BDF8249B528400CE9A68 /* PaintCode */,
 				16AB97882499414900DC5D74 /* FinishViewController.swift */,
 			);
 			path = Finish;
+			sourceTree = "<group>";
+		};
+		16F0BDF8249B528400CE9A68 /* PaintCode */ = {
+			isa = PBXGroup;
+			children = (
+				16F0BDF9249B529C00CE9A68 /* FinishWaveView.swift */,
+				16F0BDFD249BD41100CE9A68 /* DynamicFrameEdgesView.swift */,
+			);
+			path = PaintCode;
+			sourceTree = "<group>";
+		};
+		16F0BE03249BF23300CE9A68 /* Game Over */ = {
+			isa = PBXGroup;
+			children = (
+				16F0BE04249BF25D00CE9A68 /* GameOverViewController.swift */,
+			);
+			path = "Game Over";
 			sourceTree = "<group>";
 		};
 		173A65AF15294ABB2A552872 /* Frameworks */ = {
@@ -836,6 +870,8 @@
 				1665A223248D166100926AA4 /* ScoreStarsView.swift in Sources */,
 				1665D449248C32CA00B59876 /* ScoreDiamondView.swift in Sources */,
 				1662AFF7248EC18A00D303D3 /* QuestionModel.swift in Sources */,
+				16F0BE02249BEFE300CE9A68 /* AwardEnum.swift in Sources */,
+				16F0BDFA249B529C00CE9A68 /* FinishWaveView.swift in Sources */,
 				16608BB32494E57000A91489 /* ReadableModel.swift in Sources */,
 				1665D43B248B93C400B59876 /* BlockView.swift in Sources */,
 				1662B00A248EED8500D303D3 /* PopupBackgroundView.swift in Sources */,
@@ -854,6 +890,7 @@
 				16608BB02490E54A00A91489 /* HistoryModel.swift in Sources */,
 				16A49F342488E3B800093569 /* TBMStyleKit.swift in Sources */,
 				16AB97832498EDC100DC5D74 /* CallFriendsPresenter.swift in Sources */,
+				16F0BE00249BEFB800CE9A68 /* Enum+Extensions.swift in Sources */,
 				16A49F3E248900C000093569 /* ButtonView.swift in Sources */,
 				16A49F4D24891BD100093569 /* BottomHoneycombsView.swift in Sources */,
 				1672150B2498110400E744F5 /* AuditoryHintChartView.swift in Sources */,
@@ -878,6 +915,7 @@
 				1662B000248EC44500D303D3 /* PlayPresenter.swift in Sources */,
 				1662B008248ED04000D303D3 /* GameSessionModel.swift in Sources */,
 				16E7583D248A697700E29D91 /* CallFriendIconView.swift in Sources */,
+				16F0BDFC249B7C5200CE9A68 /* FinishPresenter.swift in Sources */,
 				16608BC324951B3100A91489 /* RealmService.swift in Sources */,
 				16E7583F248AF0B000E29D91 /* AnswerView.swift in Sources */,
 				16A49F552489484900093569 /* View+Extensions.swift in Sources */,
@@ -889,6 +927,7 @@
 				16AB97852498F15600DC5D74 /* OccupationEnum.swift in Sources */,
 				1699B46524901A3E00928FA8 /* CreateQuestions.swift in Sources */,
 				1699B467249027EE00928FA8 /* ProfileModel.swift in Sources */,
+				16F0BE05249BF25D00CE9A68 /* GameOverViewController.swift in Sources */,
 				1662AFFD248EC2CF00D303D3 /* PlayerModel.swift in Sources */,
 				1699B45E2490171200928FA8 /* OptionsPresenter.swift in Sources */,
 				1699B442248F882400928FA8 /* GameModeEnum.swift in Sources */,
@@ -897,6 +936,7 @@
 				16608BCB2495398400A91489 /* ReadablePresenter.swift in Sources */,
 				1699B461249017E900928FA8 /* GamePresenter.swift in Sources */,
 				1699B444248F8F8300928FA8 /* LeaderboardModel.swift in Sources */,
+				16F0BDFE249BD41100CE9A68 /* DynamicFrameEdgesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,6 @@ final class PlayPresenter {
         return presenter as WritableScorePresenter
     }
     
-    
     private var curQuestionId: Int = 0
     
     
@@ -91,9 +90,16 @@ extension PlayPresenter: ViewablePlayPresenter {
                             curLevelEnum: self.getLevel(offset: -1))
                         self.vc?.performScoreSegue()
                     }
-                } else {
-                    self.vc?.showFail()
+                    return
                 }
+                
+                if let level = Int(self.gameSessionModel.getLevel().rawValue),
+                    level < 1000 {
+                    self.vc?.blur(enabled: true)
+                    self.vc?.showGameOver()
+                    return
+                }
+                self.vc?.performScoreSegue()
             }
         }
         vc?.startBlinkAnimation(selectedAnswerId, completion)
@@ -101,15 +107,15 @@ extension PlayPresenter: ViewablePlayPresenter {
     
     
     func didPressFinish() {
+        if gameSessionModel.getLevel() == .level1 {
+            vc?.gotoMainMenu()
+            return
+        }
         vc?.perfomFinishSegue()
     }
     
     
     // getters
-    func getLevel() -> LevelEnum {
-        return gameSessionModel.getLevel()
-    }
-    
     
     func getUsedFriendHint() -> Bool {
         return gameSessionModel.getUsedFriendHint()
@@ -138,7 +144,12 @@ extension PlayPresenter: ViewablePlayPresenter {
     }
     
     func didTimeout() {
-        vc?.showFail()
+        if let level = Int(self.gameSessionModel.getLevel().rawValue),
+            level < 1000 {
+            self.vc?.showGameOver()
+            return
+        }
+        self.vc?.performScoreSegue()
     }
 }
 
@@ -147,7 +158,26 @@ extension PlayPresenter: ViewablePlayPresenter {
 
 extension PlayPresenter: ReadablePlayPresenter {
     
+    
+    func gotoMainMenu() {
+        vc?.gotoMainMenu()
+    }
+    
+    func getLevel() -> LevelEnum {
+        return gameSessionModel.getLevel()
+    }
+    
     func getCurQuestionId() -> Int {
         return curQuestionId
+    }
+    
+    public func getAward() -> String {
+        if let idx = gameSessionModel.getLevel().index {
+            let prevIdx = idx - 1
+            guard prevIdx >= 0 else { return "" }
+            let passedLevel = LevelEnum.allCases[prevIdx]
+            return LevelEnum.getAward(levelEnum: passedLevel)
+        }
+        return ""
     }
 }

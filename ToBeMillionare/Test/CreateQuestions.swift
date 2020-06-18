@@ -2,54 +2,25 @@ import Foundation
 
 
 
+
 func getEasyQuestions()->[QuestionModel] {
     
-    return [
-        QuestionModel(id: 0, levelEnum: .level1, question: "Which month of the year was named after Julius Caesar?",
-                      answers: [
-                        AnswerModel(questionId: 0, answerId: "A", answerText: "June", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "B", answerText: "October", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "C", answerText: "August", isTrue: true),
-                        AnswerModel(questionId: 0, answerId: "D", answerText: "July", isTrue: false)
-            ],
-                      gameModeEnum: .easy,
-                      occupationEnum: .historian
-                      ),
-        
-        QuestionModel(id: 1, levelEnum: .level2, question: "Which month of the year was named after Julius Caesar? 2",
-                      answers: [
-                        AnswerModel(questionId: 0, answerId: "A", answerText: "June", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "B", answerText: "October", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "C", answerText: "August", isTrue: true),
-                        AnswerModel(questionId: 0, answerId: "D", answerText: "July", isTrue: false)
-            ],
-                      gameModeEnum: .easy,
-                    occupationEnum: .historian
-            ),
-        
-        
-        QuestionModel(id: 2, levelEnum: .level3, question: "Which month of the year was named after Julius Caesar? 3",
-                      answers: [
-                        AnswerModel(questionId: 0, answerId: "A", answerText: "June", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "B", answerText: "October", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "C", answerText: "August", isTrue: true),
-                        AnswerModel(questionId: 0, answerId: "D", answerText: "July", isTrue: false)
-            ],
-                      gameModeEnum: .easy,
-                      occupationEnum: .historian
-                      ),
-        
-        QuestionModel(id: 3, levelEnum: .level4, question: "Which month of the year was named after Julius Caesar? 4",
-                      answers: [
-                        AnswerModel(questionId: 0, answerId: "A", answerText: "June", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "B", answerText: "October", isTrue: false),
-                        AnswerModel(questionId: 0, answerId: "C", answerText: "August", isTrue: true),
-                        AnswerModel(questionId: 0, answerId: "D", answerText: "July", isTrue: false)
-            ],
-                      gameModeEnum: .easy,
-                      occupationEnum: .historian
-                      ),
-    ]
+    var arr: [QuestionModel] = []
+    for i in 0...12 {
+        let level = LevelEnum.allCases[i]
+        let q = QuestionModel(id: i, levelEnum: level, question: "Which month of the year was named after Julius Caesar? \(i)" ,
+                             answers: [
+                               AnswerModel(questionId: i, answerId: "A", answerText: "June", isTrue: false),
+                               AnswerModel(questionId: i, answerId: "B", answerText: "October", isTrue: false),
+                               AnswerModel(questionId: i, answerId: "C", answerText: "August", isTrue: true),
+                               AnswerModel(questionId: i, answerId: "D", answerText: "July", isTrue: false)
+                   ],
+                             gameModeEnum: .easy,
+                             occupationEnum: .historian
+                             )
+        arr.append(q)
+    }
+    return arr
 }
 
 

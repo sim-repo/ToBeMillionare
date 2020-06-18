@@ -1,17 +1,12 @@
 import Foundation
 
 
-
 final class GameSessionModel {
 
     private var levelEnum: LevelEnum = LevelEnum.level1
     private var usedFriendHint: Bool = false
     private var usedAuditoryHint: Bool = false
     private var usedFiftyHint: Bool = false
-    
-    var award: Int {
-        return LevelEnum.getAward(levelEnum: levelEnum)
-    }
 }
 
 //MARK: - setters

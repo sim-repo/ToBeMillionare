@@ -12,6 +12,7 @@ enum ModuleEnum: String {
     case play
     case score
     case callFriends
+    case finish
     case unknown
     
     
@@ -33,6 +34,8 @@ enum ModuleEnum: String {
             self = .callFriends
         case is ScoreViewController:
             self = .score
+        case is FinishViewController:
+            self = .finish
         default:
             //TODO: catch err
             self = .unknown
@@ -60,6 +63,8 @@ enum ModuleEnum: String {
             self = .callFriends
         case is ScorePresenter:
             self = .score
+        case is FinishPresenter:
+            self = .finish
         default:
             //TODO: catch err
             self = .unknown
@@ -87,6 +92,8 @@ enum ModuleEnum: String {
             self = .callFriends
         case is ScorePresenter.Type:
             self = .score
+        case is FinishPresenter.Type:
+            self = .finish
         default:
             //TODO: catch err
             self = .unknown
@@ -114,6 +121,8 @@ enum ModuleEnum: String {
             return CallFriendsPresenter.self
         case .score:
             return ScorePresenter.self
+        case .finish:
+            return FinishPresenter.self
         default:
             //TODO: catch err
             return ProfilePresenter.self

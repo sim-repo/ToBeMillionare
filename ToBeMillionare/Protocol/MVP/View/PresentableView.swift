@@ -21,13 +21,15 @@ protocol PresentablePlayView: PresentableView {
     func showQuestion(question: ReadableQuestion)
     func perfomFinishSegue()
     func performScoreSegue()
+    func gotoMainMenu()
     func showAuditoryHint(fractionA: Double, fractionB: Double, fractionC: Double, fractionD: Double)
     func showFiftyPercentHint(wrongFirstAnswerId: Int, wrongSecondAnswerId: Int)
     func performCallFriendSegue()
-    func showFail()
+    func showGameOver()
     func showSuccess(levelEnum: LevelEnum, _ completion: (()->Void)?)
     func openTrueAnswer(_ rightAnswerId: String, _ completion: (()->Void)?)
     func startBlinkAnimation(_ selectedAnswerId: String, _ completion: (()->Void)?)
+    func blur(enabled: Bool)
 }
 
 
@@ -71,4 +73,7 @@ protocol PresentableCallFriendsView: PresentableView {
     func showFriendAnswer(answerId: String)
 }
 
-
+//MARK:- Presentable View
+protocol PresentableFinishView: PresentableView {
+    func gotoMainMenu()
+}

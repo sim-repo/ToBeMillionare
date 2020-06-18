@@ -34,7 +34,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var answer4CentralBlockView: BlockView!
     @IBOutlet weak var answer4RightBlockView: BlockView!
     
-   
+    
     @IBOutlet weak var answerLabel1: UILabel!
     @IBOutlet weak var answerLabel2: UILabel!
     @IBOutlet weak var answerLabel3: UILabel!
@@ -46,7 +46,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var auditoryHintIconView: AuditoryHintIconView!
     @IBOutlet weak var hintBackgroundViewUpCon: NSLayoutConstraint!
     @IBOutlet weak var hintBackgroundViewDownCon: NSLayoutConstraint!
-
+    
     // fifty percent hint:
     @IBOutlet weak var fiftyPercentIconView: FiftyPercentHintIconView!
     
@@ -73,6 +73,10 @@ class PlayViewController: UIViewController {
         timerReset()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+    }
     
     private func setPresenter() {
         let p: PlayPresenter  = PresenterFactory.shared.getPresenter(viewDidLoad: self) as! PlayPresenter
@@ -85,7 +89,6 @@ class PlayViewController: UIViewController {
         bottomBCQView.backgroundColor = TBMStyleKit.lighting
         bottomBCQView.fadeView(style: .top, percentage: 1.0)
     }
-    
     
     
     @IBAction func pressAnswer1(_ sender: Any) {
@@ -120,14 +123,14 @@ class PlayViewController: UIViewController {
     
     @IBAction func pressAuditoryClose(_ sender: Any) {
         hintBackgroundViewDownCon.isActive = false
-              
-              UIView.animate(withDuration: 1.0,
-                               delay: 0.0,
-                               options: [],
-                               animations: {
-                                  self.hintBackgroundViewUpCon.isActive = true
-                                  self.view.layoutIfNeeded()
-              }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0,
+                       delay: 0.0,
+                       options: [],
+                       animations: {
+                        self.hintBackgroundViewUpCon.isActive = true
+                        self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     
@@ -144,7 +147,7 @@ class PlayViewController: UIViewController {
     
     
     @IBAction func pressFinish(_ sender: Any) {
-        perfomFinishSegue()
+        presenter.didPressFinish()
     }
     
     
@@ -161,7 +164,7 @@ class PlayViewController: UIViewController {
         right.animateBlink()
     }
     
-
+    
     private func fillBlack(left: BlockView, central: BlockView, right: BlockView) {
         left.setBlackBackground()
         central.setBlackBackground()
@@ -169,10 +172,10 @@ class PlayViewController: UIViewController {
     }
     
     private func setVisibility(left: BlockView, central: BlockView, right: BlockView, isHidden: Bool) {
-           left.isHidden = isHidden
-           central.isHidden = isHidden
-           right.isHidden = isHidden
-       }
+        left.isHidden = isHidden
+        central.isHidden = isHidden
+        right.isHidden = isHidden
+    }
 }
 
 
@@ -189,7 +192,7 @@ extension PlayViewController  {
     private func timerStart() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
     }
-
+    
     @objc func onTimerFires() {
         timeLeft -= 1
         progressbarView.value -= 1
@@ -220,9 +223,9 @@ extension PlayViewController: PresentablePlayView {
         answerLabel2.fadeIn(duration: 1.0, delay: 2.2)
         answerLabel3.fadeIn(duration: 1.0, delay: 2.3)
         answerLabel4.fadeIn(duration: 1.0, delay: 2.4,
-            completion: { (finished: Bool) -> Void in
-                self.startCountdown()
-            })
+                            completion: { (finished: Bool) -> Void in
+                                self.startCountdown()
+        })
     }
     
     
@@ -241,8 +244,17 @@ extension PlayViewController: PresentablePlayView {
         }
     }
     
-    func showFail() {
-        print("fail!!!!")
+    func gotoMainMenu() {
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is ViewController {
+                _ = self.navigationController?.popToViewController(vc as! ViewController, animated: true)
+            }
+        }
+    }
+    
+    func showGameOver() {
+        performSegue(withIdentifier: "SegueGameOver", sender: nil)
     }
     
     
@@ -306,7 +318,7 @@ extension PlayViewController: PresentablePlayView {
         answerLabel2.alpha = 0
         answerLabel3.alpha = 0
         answerLabel4.alpha = 0
-    
+        
         setVisibility(left: answer1LeftBlockView, central: answer1CentralBlockView, right: answer1RightBlockView, isHidden: false)
         setVisibility(left: answer2LeftBlockView, central: answer2CentralBlockView, right: answer2RightBlockView, isHidden: false)
         setVisibility(left: answer3LeftBlockView, central: answer3CentralBlockView, right: answer3RightBlockView, isHidden: false)
@@ -329,18 +341,18 @@ extension PlayViewController: PresentablePlayView {
         
         auditoryHintIconView.startAnimate() { [weak self] in
             guard let self = self else { return }
-        
+            
             self.hintBackgroundViewUpCon.isActive = false
             
             UIView.animate(withDuration: 1.0,
-                             delay: 0.0,
-                             options: [],
-                             animations: {
-                                self.hintBackgroundViewDownCon.isActive = true
-                                self.view.layoutIfNeeded()
-                             }, completion: {_ in
-                                self.auditoryHintView.startAnimate(fractionPercentA: CGFloat(fractionA), fractionPercentB: CGFloat(fractionB), fractionPercentC: CGFloat(fractionC), fractionPercentD: CGFloat(fractionD))
-                            })
+                           delay: 0.0,
+                           options: [],
+                           animations: {
+                            self.hintBackgroundViewDownCon.isActive = true
+                            self.view.layoutIfNeeded()
+            }, completion: {_ in
+                self.auditoryHintView.startAnimate(fractionPercentA: CGFloat(fractionA), fractionPercentB: CGFloat(fractionB), fractionPercentC: CGFloat(fractionC), fractionPercentD: CGFloat(fractionD))
+            })
         }
     }
     
@@ -366,6 +378,15 @@ extension PlayViewController: PresentablePlayView {
         fiftyPercentIconView.startAnimate()
     }
     
+    func blur(enabled: Bool) {
+        let blurEffectView:UIVisualEffectView = UIVisualEffectView()
+        UIView.animate(withDuration: 3.5) {
+            blurEffectView.effect = UIBlurEffect(style: .dark)
+            self.view.addSubview(blurEffectView)
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
+    }
 }
 
 

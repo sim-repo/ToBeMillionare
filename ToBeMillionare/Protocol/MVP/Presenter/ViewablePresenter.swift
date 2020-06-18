@@ -19,7 +19,6 @@ protocol ViewableMenuPresenter: ViewablePresenter {
 //MARK:- Play
 protocol ViewablePlayPresenter: ViewablePresenter {
   
-    func getLevel() -> LevelEnum
     func getUsedFriendHint() -> Bool
     func getUsedAuditoryHint() -> Bool
     func getUsedFiftyHint() -> Bool
@@ -99,3 +98,11 @@ protocol ViewableCallFriendsPresenter: ViewablePresenter {
     func didSelectFriend(occupationEnum: OccupationEnum)
 }
 
+
+
+
+//MARK:- Finish
+protocol ViewableFinishPresenter: ViewablePresenter {
+    func getPlayerName() -> String
+    func getAward() -> String
+}

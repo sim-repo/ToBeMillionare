@@ -73,11 +73,11 @@ extension ScoreViewController: PresentableScoreView {
     func startAnimate(prevLevelEnum: LevelEnum, curLevelEnum: LevelEnum) {
         
         if curLevelEnum == .level1 {
-            createTargetCoordinate(tag: curLevelEnum.rawValue)
+            createTargetCoordinate(tag: Int(curLevelEnum.rawValue) ?? 0)
             scoreRobotView.putOnly(coordinates: coordinates, robotDelegates: robotDelegates)
         } else {
-            createTargetCoordinate(tag: prevLevelEnum.rawValue, isTakeFrom: true)
-            createTargetCoordinate(tag: curLevelEnum.rawValue)
+            createTargetCoordinate(tag: Int(prevLevelEnum.rawValue) ?? 0, isTakeFrom: true)
+            createTargetCoordinate(tag: Int(curLevelEnum.rawValue) ?? 0)
             scoreRobotView.takeAndPut(coordinates: coordinates, robotDelegates: robotDelegates)
         }
     }

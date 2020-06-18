@@ -17,3 +17,13 @@ Redesigned screen "Main Game Scene": added animation, coins
 v.0.8.0
 NEW FEATURES:
 base game mechanics
+
+<br>
+<br>
+
+20.06.18 (June 18, 2020)
+
+v.0.8.1
+NEW FEATURES:
+added screen "award"
+added screen "game over"

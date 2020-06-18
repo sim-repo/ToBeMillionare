@@ -16,6 +16,9 @@ protocol ReadableGamePresenter {
 
 //MARK:- Play
 protocol ReadablePlayPresenter {
+    func getLevel() -> LevelEnum
     func getCurQuestionId() -> Int
+    func getAward() -> String
+    func gotoMainMenu()
 }
 

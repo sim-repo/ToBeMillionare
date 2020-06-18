@@ -2,7 +2,6 @@ import Foundation
 
 
 final class GamePresenter: PresenterProtocol {
-
     private var gameModel: GameModel!
 }
 
