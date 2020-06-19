@@ -6,19 +6,12 @@ protocol ReadableProfilePresenter {
     func getSelected() -> ReadableProfile
 }
 
-//MARK:- Game
-protocol ReadableGamePresenter {
-    func getQuestion(curLevel: LevelEnum) -> ReadableQuestion
-    func getRightAnswerId(questionId: Int) -> String
-    func getAnswers(questionId: Int) -> [ReadableAnswer]
-    func getFriendAnswer(questionId: Int, occupationEnum: OccupationEnum) -> ReadableAnswer
-}
-
 //MARK:- Play
 protocol ReadablePlayPresenter {
     func getLevel() -> LevelEnum
     func getCurQuestionId() -> Int
     func getAward() -> String
     func gotoMainMenu()
+    func getFriendAnswer(questionId: Int, occupationEnum: OccupationEnum) -> ReadableAnswer
 }
 

@@ -5,23 +5,19 @@ final class CreateProfilePresenter {
     
     private var vc: PresentableCreateProfileView?
     
-    private var profiles: [ProfileModel] = []
-    private var created: ProfileModel?
-    
     private var playerName: String?
     private var playerAge: Int = 0
     private var playerAva: URL?
     
     private var template: TemplateProfileModel
     
-
-    required init(){
-        template = RealmService.loadProfileTemplate()
+    private var profilePresenter: WritableProfilePresenter {
+        let presenter: ProfilePresenter = PresenterFactory.shared.getInstance()
+        return presenter as WritableProfilePresenter
     }
     
-    private func createGame(builder: GameBuilderProtocol) {
-        let gamePresenter: GamePresenter = PresenterFactory.shared.getInstance()
-        gamePresenter.createGame(builder: builder, profile: created!)
+    required init(){
+        template = RealmService.loadProfileTemplate()
     }
 }
 
@@ -92,20 +88,11 @@ extension CreateProfilePresenter: ViewableCreateProfilePresenter {
             return
         }
             
+        let created = ProfileModel(name: playerName!, fakeProfile: false, age: playerAge, ava: playerAva!)
         
-        var id = 0
-        if let lastProfile = profiles.sorted(by: {$0.getId() < $1.getId()}).last {
-            id = lastProfile.getId() + 1
-        }
+        ProfileService.saveProfile(profile: created)
         
-        let profile = ProfileModel(id: id, name: playerName!, fakeProfile: false, age: playerAge, ava: playerAva!)
-        profiles.append(profile)
-        
-        created = profile
-        
-        let builder: NewPlayerGameBuilder = NewPlayerGameBuilder()
-        createGame(builder: builder)
-        
+        profilePresenter.setCreatedProfile(created: created)
         vc?.performMenuSegue()
     }
     

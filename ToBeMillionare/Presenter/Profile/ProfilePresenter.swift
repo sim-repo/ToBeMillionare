@@ -9,12 +9,7 @@ final class ProfilePresenter {
     private var selected: ProfileModel?
     
     required init(){
-        profiles = RealmService.loadProfiles()
-    }
-    
-    private func createGame(builder: GameBuilderProtocol) {
-        let gamePresenter: GamePresenter = PresenterFactory.shared.getInstance()
-        gamePresenter.createGame(builder: builder, profile: selected!)
+        profiles = ProfileService.loadProfiles()
     }
 }
 
@@ -51,9 +46,6 @@ extension ProfilePresenter: ViewableProfilePresenter {
             vc?.performNewProfileSegue()
             return
         }
-        
-        let builder: ExistingPlayerGameBuilder = ExistingPlayerGameBuilder()
-        createGame(builder: builder)
         vc?.performMainSegue()
     }
     
@@ -75,6 +67,11 @@ extension ProfilePresenter: ReadableProfilePresenter {
 
 //MARK:- Writable
 extension ProfilePresenter: WritableProfilePresenter {
+    
+    func setCreatedProfile(created: ProfileModel) {
+        selected = created
+        profiles.append(created)
+    }
     
     func setGameMode(modeEnum: GameModeEnum) {
         selected?.setGameMode(modeEnum: modeEnum)

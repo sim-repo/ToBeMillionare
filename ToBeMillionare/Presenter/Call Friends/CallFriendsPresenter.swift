@@ -7,10 +7,6 @@ final class CallFriendsPresenter {
     private var questionId: Int = 0
     private var usedHint = false
     
-    private var gamePresenter: ReadableGamePresenter {
-        let presenter: GamePresenter = PresenterFactory.shared.getInstance()
-        return presenter as ReadableGamePresenter
-    }
     
     private var playPresenter: ReadablePlayPresenter {
         let presenter: PlayPresenter = PresenterFactory.shared.getInstance()
@@ -30,7 +26,7 @@ extension CallFriendsPresenter: ViewableCallFriendsPresenter {
         guard usedHint == false else { return }
         usedHint = true
         let questionId = playPresenter.getCurQuestionId()
-        let answer = gamePresenter.getFriendAnswer(questionId: questionId, occupationEnum: occupationEnum)
+        let answer = playPresenter.getFriendAnswer(questionId: questionId, occupationEnum: occupationEnum)
         vc?.showFriendAnswer(answerId: answer.getAnswerId())
     }
 }

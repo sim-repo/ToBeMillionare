@@ -3,7 +3,7 @@ import Foundation
 
 final class ProfileModel {
     
-    private var id: Int
+    private var id: Int = 0
     private var name: String
     private var age: Int
     private var ava: URL
@@ -11,8 +11,7 @@ final class ProfileModel {
     private var modeEnum: GameModeEnum = .easy
     private var fakeProfile = false
     
-    internal init(id: Int, name: String, fakeProfile: Bool, age: Int, ava: URL) {
-        self.id = id
+    internal init(name: String, fakeProfile: Bool, age: Int, ava: URL) {
         self.name = name
         self.fakeProfile = fakeProfile
         self.age = age
@@ -23,6 +22,10 @@ final class ProfileModel {
 
 //MARK: - setters
 extension ProfileModel: WriteableProfile {
+    
+    func setId(id: Int) {
+        self.id = id
+    }
     
     func setAva(ava: URL) {
         self.ava = ava

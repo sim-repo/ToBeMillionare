@@ -1,18 +1,18 @@
 20.06.08 (June 8, 2020)
 
-v.0.7.0
-NEW FEATURES:
+v.0.7.0 
+NEW FEATURES: <br>
 all screens: compatible with all Iphone-devices, including Iphone SE 2rd generation
 screen "Scoring": added a new screen that appears when moving to the next level
 
-ENHANCEMENTS:
+ENHANCEMENTS: <br>
 Redesigned screen "Main Game Scene": added animation, coins
 
 
 <br>
 <br>
 
-20.06.17 (June 17, 2020)
+20.06.17 (June 17, 2020) <br>
 
 v.0.8.0
 NEW FEATURES:
@@ -21,9 +21,18 @@ base game mechanics
 <br>
 <br>
 
-20.06.18 (June 18, 2020)
+20.06.18 (June 18, 2020) <br>
 
 v.0.8.1
 NEW FEATURES:
 added screen "award"
 added screen "game over"
+
+<br>
+<br>
+
+19.06.18 (June 19, 2020) <br>
+
+v.0.8.2
+ENHANCEMENTS: <br>
+refactoring: remove entity "Game"

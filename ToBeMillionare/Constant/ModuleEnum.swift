@@ -8,7 +8,6 @@ enum ModuleEnum: String {
     case options
     case menu
     case leaderboard
-    case game
     case play
     case score
     case callFriends
@@ -55,8 +54,6 @@ enum ModuleEnum: String {
             self = .menu
         case is LeaderboardPresenter:
             self = .leaderboard
-        case is GamePresenter:
-            self = .game
         case is PlayPresenter:
             self = .play
         case is CallFriendsPresenter:
@@ -84,8 +81,6 @@ enum ModuleEnum: String {
             self = .menu
         case is LeaderboardPresenter.Type:
             self = .leaderboard
-        case is GamePresenter.Type:
-            self = .game
         case is PlayPresenter.Type:
             self = .play
         case is CallFriendsPresenter.Type:
@@ -113,8 +108,6 @@ enum ModuleEnum: String {
             return MenuPresenter.self
         case .leaderboard:
             return LeaderboardPresenter.self
-        case .game:
-            return GamePresenter.self
         case .play:
             return PlayPresenter.self
         case .callFriends:

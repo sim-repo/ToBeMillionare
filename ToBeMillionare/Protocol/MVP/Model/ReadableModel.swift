@@ -58,3 +58,4 @@ protocol ReadableAnswer: class {
     
     func getIsTrue() -> Bool
 }
+
