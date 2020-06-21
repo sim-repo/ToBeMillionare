@@ -14,13 +14,12 @@ import Foundation
 
 extension PlayPresenter: ReadablePlayPresenter {
     
-    
     func gotoMainMenu() {
         vc?.gotoMainMenu()
     }
     
     func getLevel() -> LevelEnum {
-        return gameSessionModel.getLevel()
+        return gameSessionService.getLevel()
     }
     
     func getCurQuestionId() -> Int {
@@ -28,13 +27,7 @@ extension PlayPresenter: ReadablePlayPresenter {
     }
     
     func getAward() -> String {
-        if let idx = gameSessionModel.getLevel().index {
-            let prevIdx = idx - 1
-            guard prevIdx >= 0 else { return "" }
-            let passedLevel = LevelEnum.allCases[prevIdx]
-            return LevelEnum.getAward(levelEnum: passedLevel)
-        }
-        return ""
+        return gameSessionService.getAward()
     }
     
     func getFriendAnswer(questionId: Int, occupationEnum: OccupationEnum) -> ReadableAnswer {

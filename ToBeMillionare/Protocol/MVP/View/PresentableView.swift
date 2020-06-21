@@ -17,13 +17,14 @@ protocol PresentableMenuView: PresentableView {
 protocol PresentablePlayView: PresentableView {
     func startCountdown()
     func stopCountdown()
+    func showNextLevelView(levelEnum: LevelEnum)
     func prepareForNextLevel()
     func showQuestion(question: ReadableQuestion)
     func perfomFinishSegue()
     func performScoreSegue()
     func gotoMainMenu()
     func showAuditoryHint(fractionA: Double, fractionB: Double, fractionC: Double, fractionD: Double)
-    func showFiftyPercentHint(wrongFirstAnswerId: Int, wrongSecondAnswerId: Int)
+    func showFiftyPercentHint(wrongFirstAnswerId: String, wrongSecondAnswerId: String)
     func performCallFriendSegue()
     func showGameOver()
     func showSuccess(levelEnum: LevelEnum, _ completion: (()->Void)?)
@@ -64,7 +65,6 @@ protocol PresentableCreateProfileView: PresentableView {
 //MARK:- Leaderboard
 protocol PresentableOptionsView: PresentableView {
     func setGameMode(modeEnum: GameModeEnum)
-    func setUsePassedQuestions(enabled: Bool)
 }
 
 
@@ -73,7 +73,11 @@ protocol PresentableCallFriendsView: PresentableView {
     func showFriendAnswer(answerId: String)
 }
 
-//MARK:- Presentable View
+//MARK:- Finnish
 protocol PresentableFinishView: PresentableView {
     func gotoMainMenu()
 }
+
+
+
+

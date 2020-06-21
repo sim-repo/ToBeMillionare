@@ -8,7 +8,7 @@ final class OptionsPresenter {
         return profilePresenter
     }
     
-    private var vc: PresentableOptionsView?
+    private weak var vc: PresentableOptionsView?
     
     required init() {}
 }
@@ -21,8 +21,6 @@ extension OptionsPresenter: ViewableOptionsPresenter {
         self.vc = vc as? PresentableOptionsView
         let gameMode = profilePresenter.getSelected().getGameMode()
         self.vc?.setGameMode(modeEnum: gameMode)
-        let usePassedQuestions = profilePresenter.getSelected().getUsePassedQuestions()
-        self.vc?.setUsePassedQuestions(enabled: usePassedQuestions)
     }
     
     
@@ -30,17 +28,8 @@ extension OptionsPresenter: ViewableOptionsPresenter {
         return profilePresenter.getSelected().getGameMode()
     }
     
-    func getUsePassedQuestions() -> Bool {
-        return profilePresenter.getSelected().getUsePassedQuestions()
-    }
-    
     
     func didSelectMode(modeEnum: GameModeEnum) {
         profilePresenter.setGameMode(modeEnum: modeEnum)
-    }
-    
-    
-    func didSetUsePassedQuestions(enabled: Bool) {
-        profilePresenter.setUsePassedQuestions(enabled: enabled)
     }
 }

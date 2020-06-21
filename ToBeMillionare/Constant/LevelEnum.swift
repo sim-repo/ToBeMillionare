@@ -12,8 +12,8 @@ enum LevelEnum: String, CaseIterable {
     case level8 = "16 000"
     case level9 = "32 000"
     case level10 = "64 000"
-    case level11 = "128 000"
-    case level12 = "256 000"
+    case level11 = "125 000"
+    case level12 = "250 000"
     case level13 = "1 000 000"
     
     static func getAward(levelEnum: LevelEnum) -> String {

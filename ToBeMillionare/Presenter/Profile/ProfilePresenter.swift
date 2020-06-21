@@ -76,9 +76,4 @@ extension ProfilePresenter: WritableProfilePresenter {
     func setGameMode(modeEnum: GameModeEnum) {
         selected?.setGameMode(modeEnum: modeEnum)
     }
-    
-    
-    func setUsePassedQuestions(enabled: Bool) {
-        selected?.setUsePassedQuestions(enabled: enabled)
-    }
 }

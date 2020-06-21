@@ -7,7 +7,7 @@ final class ScorePresenter: PresenterProtocol {
     private var prevLevelEnum: LevelEnum?
     private var curLevelEnum: LevelEnum?
     
-    private var vc: PresentableScoreView?
+    private weak var vc: PresentableScoreView?
 }
 
 

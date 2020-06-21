@@ -24,7 +24,7 @@ base game mechanics
 20.06.18 (June 18, 2020) <br>
 
 v.0.8.1
-NEW FEATURES:
+NEW FEATURES: <br>
 added screen "award"
 added screen "game over"
 
@@ -36,3 +36,12 @@ added screen "game over"
 v.0.8.2
 ENHANCEMENTS: <br>
 refactoring: remove entity "Game"
+
+
+
+22.06.18 (June 22, 2020) <br>
+
+v.0.8.3 
+NEW FEATURES: <br>
+fill/select questions <br>
+load/save history <br>

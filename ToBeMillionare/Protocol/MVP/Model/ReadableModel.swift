@@ -15,8 +15,6 @@ protocol ReadableProfile: class {
     func isFakeProfile() -> Bool
     
     func getGameMode() -> GameModeEnum
-    
-    func getUsePassedQuestions() -> Bool
 }
 
 
@@ -41,10 +39,11 @@ protocol ReadableLeaderboard: class {
 
 //MARK:- Question
 protocol ReadableQuestion: class {
-    
     func getQuestionId() -> Int
     func getQuestionText() -> String
     func getAnswers() -> [ReadableAnswer]
+    func getGameModeEnum() -> GameModeEnum
+    func getLevelEnum() -> LevelEnum
 }
 
 

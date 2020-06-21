@@ -11,8 +11,6 @@ protocol WriteableProfile: class {
     func setName(name: String)
 
     func setGameMode(modeEnum: GameModeEnum)
-
-    func setUsePassedQuestions(enabled: Bool)
 }
 
 

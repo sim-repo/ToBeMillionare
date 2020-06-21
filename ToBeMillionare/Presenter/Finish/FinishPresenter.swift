@@ -10,7 +10,7 @@ import Foundation
 
 final class FinishPresenter {
     
-    private var vc: PresentableFinishView?
+    private weak var vc: PresentableFinishView?
     
     private var profilePresenter: ReadableProfilePresenter {
         let profilePresenter: ProfilePresenter = PresenterFactory.shared.getInstance()

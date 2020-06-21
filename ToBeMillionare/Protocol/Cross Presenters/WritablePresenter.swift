@@ -4,7 +4,6 @@ import Foundation
 //MARK:- Profile
 protocol WritableProfilePresenter {
     func setGameMode(modeEnum: GameModeEnum)
-    func setUsePassedQuestions(enabled: Bool)
     func setCreatedProfile(created: ProfileModel)
 }
 

@@ -2,7 +2,7 @@ import Foundation
 
 final class LeaderboardPresenter {
     
-    private var vc: PresentableProfileView?
+    private weak var vc: PresentableProfileView?
     
     required init(){}
 }

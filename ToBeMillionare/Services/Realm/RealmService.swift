@@ -8,7 +8,7 @@ class RealmService {
 
 // load
 extension RealmService {
-    public static func loadQuestions(_ gameMode: GameModeEnum, _ usePassedQuestions: Bool) -> [QuestionModel] {
+    public static func loadQuestions(_ gameMode: GameModeEnum) -> [QuestionModel] {
         return getEasyQuestions()
     }
     
@@ -22,6 +22,10 @@ extension RealmService {
     
     public static func loadProfileTemplate() -> TemplateProfileModel {
         return getTemplateProfile()
+    }
+    
+    public static func loadHistory(gameModeEnum: GameModeEnum) -> [HistoryModel]? {
+        return nil
     }
 }
 

@@ -76,8 +76,10 @@ extension ScoreViewController: PresentableScoreView {
             createTargetCoordinate(tag: Int(curLevelEnum.rawValue) ?? 0)
             scoreRobotView.putOnly(coordinates: coordinates, robotDelegates: robotDelegates)
         } else {
-            createTargetCoordinate(tag: Int(prevLevelEnum.rawValue) ?? 0, isTakeFrom: true)
-            createTargetCoordinate(tag: Int(curLevelEnum.rawValue) ?? 0)
+            let prevLev = prevLevelEnum.rawValue.replacingOccurrences(of: " ", with: "")
+            let curLev = curLevelEnum.rawValue.replacingOccurrences(of: " ", with: "")
+            createTargetCoordinate(tag: Int(prevLev) ?? 0, isTakeFrom: true)
+            createTargetCoordinate(tag: Int(curLev) ?? 0)
             scoreRobotView.takeAndPut(coordinates: coordinates, robotDelegates: robotDelegates)
         }
     }

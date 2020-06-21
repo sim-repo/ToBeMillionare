@@ -23,7 +23,7 @@ enum ModuleEnum: String {
             self = .createProfile
         case is OptionsViewController:
             self = .options
-        case is ViewController:
+        case is MenuViewController:
             self = .menu
         case is LeaderboardViewController:
             self = .leaderboard

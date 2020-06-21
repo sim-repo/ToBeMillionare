@@ -3,7 +3,7 @@ import Foundation
 
 final class MenuPresenter {
     
-    private var vc: PresentableMenuView?
+    private weak var vc: PresentableMenuView?
     
     required init(){}
 }
@@ -26,5 +26,9 @@ extension MenuPresenter: ViewableMenuPresenter {
     
     func didPressOptions() {
         vc?.performOptionsSegue()
+    }
+    
+    func viewDidAppear() {
+        PresenterFactory.shared.dismisPresenter(clazz: PlayPresenter.self)
     }
 }

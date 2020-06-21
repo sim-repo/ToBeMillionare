@@ -18,11 +18,11 @@ class ScoreRobotView: UIView {
     
     // control vars:
     var robotHeight: CGFloat = 667
-    var robotHeightStep: CGFloat = 2
+    var robotHeightStep: CGFloat = 4
     var robotArmLen: CGFloat = 20
-    var robotArmStep: CGFloat = 2
+    var robotArmStep: CGFloat = 4
     var robotTake: CGFloat = 30
-    var robotTakeStep: CGFloat = 1
+    var robotTakeStep: CGFloat = 4
     var isTook = true
     
     

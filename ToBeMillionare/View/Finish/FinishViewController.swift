@@ -50,6 +50,12 @@ final class FinishViewController: UIViewController {
         congratsAnimate()
     }
     
+    deinit {
+        print("------------------DEINIT------------------")
+        print("........FinishViewController................")
+        print("------------------------------------------")
+    }
+    
     private func setupOutlets() {
         scoreFallingLabel.text = presenter.getAward()
         playerNameLabel.text = presenter.getPlayerName()
@@ -177,8 +183,8 @@ extension FinishViewController: PresentableFinishView {
     func gotoMainMenu() {
         let controllers = self.navigationController?.viewControllers
         for vc in controllers! {
-            if vc is ViewController {
-                _ = self.navigationController?.popToViewController(vc as! ViewController, animated: true)
+            if vc is MenuViewController {
+                _ = self.navigationController?.popToViewController(vc as! MenuViewController, animated: true)
             }
         }
     }

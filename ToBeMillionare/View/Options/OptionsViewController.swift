@@ -5,7 +5,6 @@ class OptionsViewController: UIViewController {
     
     @IBOutlet weak var gameModeTextField: UITextField!
     @IBOutlet weak var gameModePickerView: UIPickerView!
-    @IBOutlet weak var usePassedQuestionsSwitch: UISwitch!
     
     var presenter: ViewableOptionsPresenter!
     
@@ -27,10 +26,6 @@ class OptionsViewController: UIViewController {
     
     @IBAction func pressBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func pressSwitch(_ sender: UISwitch) {
-        presenter.didSetUsePassedQuestions(enabled: sender.isOn)
     }
 }
 
@@ -78,9 +73,5 @@ extension OptionsViewController: PresentableOptionsView {
     
     func setGameMode(modeEnum: GameModeEnum) {
         gameModeTextField.text = modeEnum.rawValue
-    }
-    
-    func setUsePassedQuestions(enabled: Bool) {
-        usePassedQuestionsSwitch.isOn = enabled
     }
 }

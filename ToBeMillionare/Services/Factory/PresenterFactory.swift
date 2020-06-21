@@ -6,11 +6,11 @@ class PresenterFactory {
     
     static let shared = PresenterFactory()
     private init(){}
-
+    
     // store
     private lazy var presenters: [ModuleEnum:PresenterProtocol] = [:]
     
-
+    
     // called from Anywhere:
     public func getInstance<T: PresenterProtocol>() -> T {
         if let presenter: T = getPresenter() {
@@ -54,5 +54,10 @@ class PresenterFactory {
         presenters[moduleEnum] = presenter
         (presenter as! ViewablePresenter).setView(vc: vc)
         return presenter
+    }
+    
+    public func dismisPresenter(clazz: PresenterProtocol.Type) {
+        let moduleEnum = ModuleEnum(presenterType: clazz)
+        presenters[moduleEnum] = nil
     }
 }

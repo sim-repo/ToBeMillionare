@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16027095249E1B6F0029492C /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027094249E1B6F0029492C /* Data+Extensions.swift */; };
+		16027097249E6E200029492C /* MoneyView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027096249E6E200029492C /* MoneyView2.swift */; };
+		16027099249EAA530029492C /* CreateDifficultQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027098249EAA530029492C /* CreateDifficultQuestions.swift */; };
+		16553E1B249FD3F000305DD7 /* CreateMediumQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16553E1A249FD3F000305DD7 /* CreateMediumQuestions.swift */; };
+		16553E1D249FF1DA00305DD7 /* PlayViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16553E1C249FF1DA00305DD7 /* PlayViewController+Presentable.swift */; };
+		16553E1F249FF25500305DD7 /* PlayViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16553E1E249FF25500305DD7 /* PlayViewController+Animations.swift */; };
 		16608BB02490E54A00A91489 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16608BAF2490E54A00A91489 /* HistoryModel.swift */; };
 		16608BB32494E57000A91489 /* ReadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16608BB22494E57000A91489 /* ReadableModel.swift */; };
 		16608BB52494E5C500A91489 /* WriteableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16608BB42494E5C500A91489 /* WriteableModel.swift */; };
@@ -40,6 +46,9 @@
 		167215092497AA7200E744F5 /* ScorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167215082497AA7200E744F5 /* ScorePresenter.swift */; };
 		1672150B2498110400E744F5 /* AuditoryHintChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672150A2498110400E744F5 /* AuditoryHintChartView.swift */; };
 		167F69C9249CB339007F9912 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167F69C8249CB339007F9912 /* ProfileService.swift */; };
+		167F69CC249CC2DA007F9912 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167F69CB249CC2DA007F9912 /* HistoryService.swift */; };
+		167F69CE249D0603007F9912 /* OrderByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167F69CD249D0603007F9912 /* OrderByEnum.swift */; };
+		167F69D1249D586C007F9912 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167F69D0249D586C007F9912 /* FileManager.swift */; };
 		1699B440248F7BE500928FA8 /* LevelEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699B43F248F7BE500928FA8 /* LevelEnum.swift */; };
 		1699B442248F882400928FA8 /* GameModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699B441248F882400928FA8 /* GameModeEnum.swift */; };
 		1699B444248F8F8300928FA8 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699B443248F8F8300928FA8 /* LeaderboardModel.swift */; };
@@ -63,7 +72,7 @@
 		16A0CBA62496DE33008A74AA /* CreateProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0CBA52496DE33008A74AA /* CreateProfilePresenter.swift */; };
 		16A49F202488E22B00093569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A49F1F2488E22B00093569 /* AppDelegate.swift */; };
 		16A49F222488E22B00093569 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A49F212488E22B00093569 /* SceneDelegate.swift */; };
-		16A49F242488E22B00093569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A49F232488E22B00093569 /* ViewController.swift */; };
+		16A49F242488E22B00093569 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A49F232488E22B00093569 /* MenuViewController.swift */; };
 		16A49F272488E22B00093569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A49F252488E22B00093569 /* Main.storyboard */; };
 		16A49F2C2488E22D00093569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A49F2A2488E22D00093569 /* LaunchScreen.storyboard */; };
 		16A49F342488E3B800093569 /* TBMStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A49F332488E3B800093569 /* TBMStyleKit.swift */; };
@@ -98,6 +107,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16027094249E1B6F0029492C /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		16027096249E6E200029492C /* MoneyView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView2.swift; sourceTree = "<group>"; };
+		16027098249EAA530029492C /* CreateDifficultQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDifficultQuestions.swift; sourceTree = "<group>"; };
+		16553E1A249FD3F000305DD7 /* CreateMediumQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMediumQuestions.swift; sourceTree = "<group>"; };
+		16553E1C249FF1DA00305DD7 /* PlayViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayViewController+Presentable.swift"; sourceTree = "<group>"; };
+		16553E1E249FF25500305DD7 /* PlayViewController+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayViewController+Animations.swift"; sourceTree = "<group>"; };
 		16608BAF2490E54A00A91489 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		16608BB22494E57000A91489 /* ReadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableModel.swift; sourceTree = "<group>"; };
 		16608BB42494E5C500A91489 /* WriteableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteableModel.swift; sourceTree = "<group>"; };
@@ -131,6 +146,9 @@
 		167215082497AA7200E744F5 /* ScorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePresenter.swift; sourceTree = "<group>"; };
 		1672150A2498110400E744F5 /* AuditoryHintChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryHintChartView.swift; sourceTree = "<group>"; };
 		167F69C8249CB339007F9912 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		167F69CB249CC2DA007F9912 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
+		167F69CD249D0603007F9912 /* OrderByEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderByEnum.swift; sourceTree = "<group>"; };
+		167F69D0249D586C007F9912 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		1699B43F248F7BE500928FA8 /* LevelEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelEnum.swift; sourceTree = "<group>"; };
 		1699B441248F882400928FA8 /* GameModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeEnum.swift; sourceTree = "<group>"; };
 		1699B443248F8F8300928FA8 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
@@ -155,7 +173,7 @@
 		16A49F1C2488E22B00093569 /* ToBeMillionare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToBeMillionare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A49F1F2488E22B00093569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16A49F212488E22B00093569 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		16A49F232488E22B00093569 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16A49F232488E22B00093569 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		16A49F262488E22B00093569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16A49F2B2488E22D00093569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16A49F2D2488E22D00093569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,6 +222,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16027093249E10BB0029492C /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				1662AFF6248EC18A00D303D3 /* QuestionModel.swift */,
+				1662AFF8248EC1A100D303D3 /* AnswerModel.swift */,
+				1699B466249027EE00928FA8 /* ProfileModel.swift */,
+				16608BAF2490E54A00A91489 /* HistoryModel.swift */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
 		16608BB12494E55E00A91489 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +253,8 @@
 		16608BB82494EB5900A91489 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				167F69CF249D5851007F9912 /* File Manager */,
+				167F69CA249CC2CA007F9912 /* History */,
 				167F69C7249CB328007F9912 /* Profile */,
 				167F69C6249C95C5007F9912 /* Game Session */,
 				16608BC124951B2700A91489 /* Realm */,
@@ -261,12 +292,8 @@
 		1662AFFA248EC29900D303D3 /* Non-Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				1662AFF6248EC18A00D303D3 /* QuestionModel.swift */,
-				1662AFF8248EC1A100D303D3 /* AnswerModel.swift */,
 				1662B007248ED04000D303D3 /* GameSessionModel.swift */,
 				1699B443248F8F8300928FA8 /* LeaderboardModel.swift */,
-				1699B466249027EE00928FA8 /* ProfileModel.swift */,
-				16608BAF2490E54A00A91489 /* HistoryModel.swift */,
 				16A0CB9E2496D83E008A74AA /* TemplateProfileModel.swift */,
 			);
 			path = "Non-Persistent";
@@ -276,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				1699B46424901A3E00928FA8 /* CreateQuestions.swift */,
+				16553E1A249FD3F000305DD7 /* CreateMediumQuestions.swift */,
+				16027098249EAA530029492C /* CreateDifficultQuestions.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -355,6 +384,22 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		167F69CA249CC2CA007F9912 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				167F69CB249CC2DA007F9912 /* HistoryService.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		167F69CF249D5851007F9912 /* File Manager */ = {
+			isa = PBXGroup;
+			children = (
+				167F69D0249D586C007F9912 /* FileManager.swift */,
+			);
+			path = "File Manager";
+			sourceTree = "<group>";
+		};
 		1699B43E248F7B9100928FA8 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +409,7 @@
 				16A0CBA22496D8CD008A74AA /* AgeGroup.swift */,
 				16AB97842498F15600DC5D74 /* OccupationEnum.swift */,
 				16F0BE01249BEFE300CE9A68 /* AwardEnum.swift */,
+				167F69CD249D0603007F9912 /* OrderByEnum.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -500,7 +546,6 @@
 				16608BB82494EB5900A91489 /* Services */,
 				1699B43E248F7B9100928FA8 /* Constant */,
 				1662AFFB248EC2B500D303D3 /* Test */,
-				16E75836248A508700E29D91 /* Assets.xcassets */,
 				16A49F41248902FC00093569 /* Presenter */,
 				16A49F40248902F600093569 /* View */,
 				16A49F3F248902B000093569 /* Model */,
@@ -519,6 +564,7 @@
 		16A49F372488E4A400093569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16E75836248A508700E29D91 /* Assets.xcassets */,
 				1665A22C248DCE2B00926AA4 /* robot-sound3.mp3 */,
 				1665A22A248DCCD100926AA4 /* robot-sound2.mp3 */,
 				1665A228248DC6D200926AA4 /* robot-sound1.mp3 */,
@@ -540,6 +586,7 @@
 		16A49F3F248902B000093569 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				16027093249E10BB0029492C /* Persistent */,
 				1662AFFA248EC29900D303D3 /* Non-Persistent */,
 			);
 			path = Model;
@@ -583,7 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				16A49F432489033B00093569 /* PaintCode */,
-				16A49F232488E22B00093569 /* ViewController.swift */,
+				16A49F232488E22B00093569 /* MenuViewController.swift */,
 			);
 			path = StartMenu;
 			sourceTree = "<group>";
@@ -612,6 +659,8 @@
 			children = (
 				16A49F5024891EB100093569 /* PaintCode */,
 				16A49F4E24891E9600093569 /* PlayViewController.swift */,
+				16553E1C249FF1DA00305DD7 /* PlayViewController+Presentable.swift */,
+				16553E1E249FF25500305DD7 /* PlayViewController+Animations.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -629,6 +678,7 @@
 				16E7583E248AF0B000E29D91 /* AnswerView.swift */,
 				1665D43A248B93C400B59876 /* BlockView.swift */,
 				1665D43E248BB0F100B59876 /* MoneyView.swift */,
+				16027096249E6E200029492C /* MoneyView2.swift */,
 			);
 			path = PaintCode;
 			sourceTree = "<group>";
@@ -639,6 +689,7 @@
 				16A49F542489484900093569 /* View+Extensions.swift */,
 				16A49F5F248959FD00093569 /* RoundedView.swift */,
 				16F0BDFF249BEFB800CE9A68 /* Enum+Extensions.swift */,
+				16027094249E1B6F0029492C /* Data+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -857,12 +908,16 @@
 				16F0BE02249BEFE300CE9A68 /* AwardEnum.swift in Sources */,
 				16F0BDFA249B529C00CE9A68 /* FinishWaveView.swift in Sources */,
 				16608BB32494E57000A91489 /* ReadableModel.swift in Sources */,
+				16027097249E6E200029492C /* MoneyView2.swift in Sources */,
 				1665D43B248B93C400B59876 /* BlockView.swift in Sources */,
 				1662B00A248EED8500D303D3 /* PopupBackgroundView.swift in Sources */,
+				16553E1F249FF25500305DD7 /* PlayViewController+Animations.swift in Sources */,
 				1699B447248FE05500928FA8 /* MenuPresenter.swift in Sources */,
 				1699B46D24902A2A00928FA8 /* ProfileCell.swift in Sources */,
 				16A0CB9B2496D20C008A74AA /* NewProfileCell.swift in Sources */,
 				167F69C9249CB339007F9912 /* ProfileService.swift in Sources */,
+				167F69CE249D0603007F9912 /* OrderByEnum.swift in Sources */,
+				16553E1D249FF1DA00305DD7 /* PlayViewController+Presentable.swift in Sources */,
 				1699B47024902B5D00928FA8 /* ProfilePresenter.swift in Sources */,
 				16A49F5824894C0600093569 /* TabBarView.swift in Sources */,
 				1665D43F248BB0F100B59876 /* MoneyView.swift in Sources */,
@@ -878,8 +933,9 @@
 				16A49F3E248900C000093569 /* ButtonView.swift in Sources */,
 				16A49F4D24891BD100093569 /* BottomHoneycombsView.swift in Sources */,
 				1672150B2498110400E744F5 /* AuditoryHintChartView.swift in Sources */,
-				16A49F242488E22B00093569 /* ViewController.swift in Sources */,
+				16A49F242488E22B00093569 /* MenuViewController.swift in Sources */,
 				1699B44C248FE12700928FA8 /* PresentableView.swift in Sources */,
+				167F69D1249D586C007F9912 /* FileManager.swift in Sources */,
 				1699B440248F7BE500928FA8 /* LevelEnum.swift in Sources */,
 				1699B46A249029F500928FA8 /* ProfileViewController.swift in Sources */,
 				16A49F60248959FD00093569 /* RoundedView.swift in Sources */,
@@ -892,11 +948,13 @@
 				16608BCD2495437300A91489 /* WritablePresenter.swift in Sources */,
 				16E75839248A50D000E29D91 /* AuditoryHintIconView.swift in Sources */,
 				1699B449248FE0B200928FA8 /* ViewablePresenter.swift in Sources */,
+				16027095249E1B6F0029492C /* Data+Extensions.swift in Sources */,
 				1665D443248C036400B59876 /* ScoreWaveView.swift in Sources */,
 				16A49F46248903C300093569 /* HoneycombView.swift in Sources */,
 				16A49F202488E22B00093569 /* AppDelegate.swift in Sources */,
 				1662B000248EC44500D303D3 /* PlayPresenter.swift in Sources */,
 				1662B008248ED04000D303D3 /* GameSessionModel.swift in Sources */,
+				16553E1B249FD3F000305DD7 /* CreateMediumQuestions.swift in Sources */,
 				16E7583D248A697700E29D91 /* CallFriendIconView.swift in Sources */,
 				16F0BDFC249B7C5200CE9A68 /* FinishPresenter.swift in Sources */,
 				16608BC324951B3100A91489 /* RealmService.swift in Sources */,
@@ -913,6 +971,8 @@
 				16F0BE05249BF25D00CE9A68 /* GameOverViewController.swift in Sources */,
 				1699B45E2490171200928FA8 /* OptionsPresenter.swift in Sources */,
 				1699B442248F882400928FA8 /* GameModeEnum.swift in Sources */,
+				16027099249EAA530029492C /* CreateDifficultQuestions.swift in Sources */,
+				167F69CC249CC2DA007F9912 /* HistoryService.swift in Sources */,
 				16E7583B248A5F1700E29D91 /* FiftyPercentHintIconView.swift in Sources */,
 				16608BCB2495398400A91489 /* ReadablePresenter.swift in Sources */,
 				1699B444248F8F8300928FA8 /* LeaderboardModel.swift in Sources */,
