@@ -27,32 +27,29 @@ extension PlayPresenter: ViewablePlayPresenter {
     
     
     func didPressUseFriendHint() {
-        guard gameSessionService.getUsedFriendHint() == false else { return }
-        gameSessionService.setUsedFriendHint(enabled: true)
+        guard gameSessionService.isUsedFriendHint() == false else { return }
         vc?.performCallFriendSegue()
     }
     
     
     func didPressUseAuditoryHint() {
-        guard gameSessionService.getUsedAuditoryHint() == false else { return }
-        gameSessionService.setUsedAuditoryHint(enabled: true)
-        vc?.showAuditoryHint(fractionA: 0.3, fractionB: 0.2, fractionC: 0.2, fractionD: 0.3)
+        guard gameSessionService.isUsedAuditoryHint() == false else { return }
+        let percents = gameSessionService.getAuditoryHint()
+        vc?.showAuditoryHint(fractionA: percents[0], fractionB: percents[1], fractionC: percents[2], fractionD: percents[3])
     }
     
     
     func didPressUseFiftyHint() {
-        guard gameSessionService.getUsedFiftyHint() == false else { return }
-        gameSessionService.setUsedFiftyHint(enabled: true)
-        
-        let wrongAnswerIds = gameSessionService.getFiftyPercentWrongIds()
-        vc?.showFiftyPercentHint(wrongFirstAnswerId: wrongAnswerIds[0], wrongSecondAnswerId: wrongAnswerIds[1])
+        guard gameSessionService.isUsedFiftyHint() == false else { return }
+        let wrongAnswerIds = gameSessionService.getFiftyHintWrongIds()
+        vc?.showFiftyHint(wrongFirstAnswerId: wrongAnswerIds[0], wrongSecondAnswerId: wrongAnswerIds[1])
     }
     
     
     func didPressSelectAnswer(selectedAnswerId: String) {
         let completion: (()->Void)? = {[weak self] in
             guard let self = self else { return }
-            let rightAnswerId = self.gameSessionService.getRightAnswerId(questionId: self.curQuestionId)
+            let rightAnswerId = self.gameSessionService.getRightAnswerId(questionId: self.curQuestion.getQuestionId())
             self.vc?.openTrueAnswer(rightAnswerId) { [weak self] in
                 guard let self = self else { return }
                 
@@ -80,28 +77,27 @@ extension PlayPresenter: ViewablePlayPresenter {
     }
     
     func getUsedFriendHint() -> Bool {
-        return gameSessionService.getUsedFriendHint()
+        return gameSessionService.isUsedFriendHint()
     }
     
     
     func getUsedAuditoryHint() -> Bool {
-        return gameSessionService.getUsedAuditoryHint()
+        return gameSessionService.isUsedAuditoryHint()
     }
     
     
     func getUsedFiftyHint() -> Bool {
-        return gameSessionService.getUsedFiftyHint()
+        return gameSessionService.isUsedFiftyHint()
     }
     
     
-    func getQuestion() -> String {
-        let question = gameSessionService.getQuestion(curLevel: gameSessionService.getLevel())
-        curQuestionId = question.getQuestionId()
-        return question.getQuestionText()
+    func getNextQuestion() -> String {
+        curQuestion = gameSessionService.getQuestion(curLevel: gameSessionService.getLevel())
+        return curQuestion.getQuestionText()
     }
     
     
     func getAnswers() -> [ReadableAnswer] {
-        return gameSessionService.getAnswers(questionId: curQuestionId)
+        return gameSessionService.getAnswers(questionId: curQuestion.getQuestionId())
     }
 }

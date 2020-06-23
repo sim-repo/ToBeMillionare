@@ -1,44 +1,45 @@
 import Foundation
 
+//https://baza-otvetov.ru/categories/view/1/180
 
-func getEasyQuestions()->[QuestionModel] {
-    var arr: [QuestionModel] = []
-    
-    var id = -1
-    var lev = 0
-    for i in 0...easyQuestions.count - 1 {
-        lev += 1
-        if lev > 12 {
-            lev = 0
-        }
-        let level = LevelEnum.allCases[lev]
-        let questionString = easyQuestions[i]
-        var answers = easyAnswers[i]
-        let trueAnswerText = answers.last!
-        answers.shuffle()
-        var indexOfTrue = 0
-        if let a = answers.firstIndex(of: trueAnswerText) {
-            indexOfTrue = Int(a)
-        }
-        
-        var trueOrFalse:[Bool] = [false, false, false, false]
-        trueOrFalse[indexOfTrue] = true
-        
-        let q = QuestionModel(id: id, levelEnum: level, question: questionString ,
-                              answers: [
-                                AnswerModel(questionId: id, answerId: "A", answerText: answers[0], isTrue: trueOrFalse[0]),
-                                AnswerModel(questionId: id, answerId: "B", answerText: answers[1], isTrue: trueOrFalse[1]),
-                                AnswerModel(questionId: id, answerId: "C", answerText: answers[2], isTrue: trueOrFalse[2]),
-                                AnswerModel(questionId: id, answerId: "D", answerText: answers[3], isTrue: trueOrFalse[3])
-            ],
-                              gameModeEnum: .easy,
-                              occupationEnum: .historian
-        )
-        arr.append(q)
-        id += 1
-    }
-    return arr
-}
+//func getEasyQuestions()->[QuestionModel] {
+//    var arr: [QuestionModel] = []
+//    
+//    var id = -1
+//    var lev = 0
+//    for i in 0...easyQuestions.count - 1 {
+//        lev += 1
+//        if lev > 12 {
+//            lev = 0
+//        }
+//        let level = LevelEnum.allCases[lev]
+//        let questionString = easyQuestions[i]
+//        var answers = easyAnswers[i]
+//        let trueAnswerText = answers.last!
+//        answers.shuffle()
+//        var indexOfTrue = 0
+//        if let a = answers.firstIndex(of: trueAnswerText) {
+//            indexOfTrue = Int(a)
+//        }
+//        
+//        var trueOrFalse:[Bool] = [false, false, false, false]
+//        trueOrFalse[indexOfTrue] = true
+//        
+//        let q = QuestionModel(id: id, levelEnum: level, question: questionString ,
+//                              answers: [
+//                                AnswerModel(questionId: id, answerId: "A", answerText: answers[0], isTrue: trueOrFalse[0]),
+//                                AnswerModel(questionId: id, answerId: "B", answerText: answers[1], isTrue: trueOrFalse[1]),
+//                                AnswerModel(questionId: id, answerId: "C", answerText: answers[2], isTrue: trueOrFalse[2]),
+//                                AnswerModel(questionId: id, answerId: "D", answerText: answers[3], isTrue: trueOrFalse[3])
+//            ],
+//                              gameModeEnum: .easy,
+//                              occupationEnum: .historian
+//        )
+//        arr.append(q)
+//        id += 1
+//    }
+//    return arr
+//}
 
 
 
@@ -136,7 +137,8 @@ let easyQuestions:[String] = [
     "Какую форму принимает любая жидкость в невесомости?",
     "Русский космонавт А. Леонов первым…",
     "Какой длины язык у жирафа?",
-    "Что в переводе с греческого означает слово «телефон»?"
+    "Что в переводе с греческого означает слово «телефон»?",
+    "Какой из этих органов не считается частью дыхательной системы?"
 ]
 
 

@@ -29,6 +29,7 @@ extension MenuPresenter: ViewableMenuPresenter {
     }
     
     func viewDidAppear() {
+        PresenterFactory.shared.dismisPresenter(clazz: CallFriendsPresenter.self)
         PresenterFactory.shared.dismisPresenter(clazz: PlayPresenter.self)
     }
 }

@@ -10,7 +10,6 @@
 		16027095249E1B6F0029492C /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027094249E1B6F0029492C /* Data+Extensions.swift */; };
 		16027097249E6E200029492C /* MoneyView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027096249E6E200029492C /* MoneyView2.swift */; };
 		16027099249EAA530029492C /* CreateDifficultQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027098249EAA530029492C /* CreateDifficultQuestions.swift */; };
-		16553E1B249FD3F000305DD7 /* CreateMediumQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16553E1A249FD3F000305DD7 /* CreateMediumQuestions.swift */; };
 		16553E1D249FF1DA00305DD7 /* PlayViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16553E1C249FF1DA00305DD7 /* PlayViewController+Presentable.swift */; };
 		16553E1F249FF25500305DD7 /* PlayViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16553E1E249FF25500305DD7 /* PlayViewController+Animations.swift */; };
 		16608BB02490E54A00A91489 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16608BAF2490E54A00A91489 /* HistoryModel.swift */; };
@@ -110,7 +109,6 @@
 		16027094249E1B6F0029492C /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		16027096249E6E200029492C /* MoneyView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView2.swift; sourceTree = "<group>"; };
 		16027098249EAA530029492C /* CreateDifficultQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDifficultQuestions.swift; sourceTree = "<group>"; };
-		16553E1A249FD3F000305DD7 /* CreateMediumQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMediumQuestions.swift; sourceTree = "<group>"; };
 		16553E1C249FF1DA00305DD7 /* PlayViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayViewController+Presentable.swift"; sourceTree = "<group>"; };
 		16553E1E249FF25500305DD7 /* PlayViewController+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayViewController+Animations.swift"; sourceTree = "<group>"; };
 		16608BAF2490E54A00A91489 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				1699B46424901A3E00928FA8 /* CreateQuestions.swift */,
-				16553E1A249FD3F000305DD7 /* CreateMediumQuestions.swift */,
 				16027098249EAA530029492C /* CreateDifficultQuestions.swift */,
 			);
 			path = Test;
@@ -954,7 +951,6 @@
 				16A49F202488E22B00093569 /* AppDelegate.swift in Sources */,
 				1662B000248EC44500D303D3 /* PlayPresenter.swift in Sources */,
 				1662B008248ED04000D303D3 /* GameSessionModel.swift in Sources */,
-				16553E1B249FD3F000305DD7 /* CreateMediumQuestions.swift in Sources */,
 				16E7583D248A697700E29D91 /* CallFriendIconView.swift in Sources */,
 				16F0BDFC249B7C5200CE9A68 /* FinishPresenter.swift in Sources */,
 				16608BC324951B3100A91489 /* RealmService.swift in Sources */,

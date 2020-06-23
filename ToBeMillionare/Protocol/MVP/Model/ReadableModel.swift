@@ -43,7 +43,8 @@ protocol ReadableQuestion: class {
     func getQuestionText() -> String
     func getAnswers() -> [ReadableAnswer]
     func getGameModeEnum() -> GameModeEnum
-    func getLevelEnum() -> LevelEnum
+    func getMinLevelEnum() -> LevelEnum
+    func getMaxLevelEnum() -> LevelEnum
 }
 
 

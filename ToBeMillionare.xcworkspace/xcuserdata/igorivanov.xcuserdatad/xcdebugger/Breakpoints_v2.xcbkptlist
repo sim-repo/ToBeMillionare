@@ -14,8 +14,8 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "getQuestion(curLevel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "getQuestion(curLevel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "getQuestion(curLevel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "getQuestion(curLevel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "ToBeMillionare/Services/History/HistoryService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "getPassedQuestionIds(gameModeEnum:playerId:orderBy:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "ToBeMillionare/Services/History/HistoryService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "createHistory(gameModeEnum:playerId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,42 +286,10 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "getQuestion(curLevel:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "185D62DB-A833-49A1-96D9-07EE7ED39218 - 51808adc306a54b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ToBeMillionare.GameSessionService.getQuestion(curLevel: ToBeMillionare.LevelEnum) -&gt; ToBeMillionare.ReadableQuestion"
-                  moduleName = "ToBeMillionare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igorivanov/Desktop/Millionare/ToBeMillionare/ToBeMillionare/Services/Game%20Session/GameSessionService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "389">
-               </Location>
-               <Location
-                  uuid = "185D62DB-A833-49A1-96D9-07EE7ED39218 - a584a3511bf3a87e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (ToBeMillionare.QuestionModel) -&gt; Swift.Bool in ToBeMillionare.GameSessionService.getQuestion(curLevel: ToBeMillionare.LevelEnum) -&gt; ToBeMillionare.ReadableQuestion"
-                  moduleName = "ToBeMillionare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igorivanov/Desktop/Millionare/ToBeMillionare/ToBeMillionare/Services/Game%20Session/GameSessionService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,8 +302,8 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "getQuestion(curLevel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +318,8 @@
             filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "setFinishSession()"
             landmarkType = "7">
          </BreakpointContent>
@@ -401,6 +369,164 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "init(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "134DA230-61C1-4C99-96BF-629A346D4CAB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "getAuditoryHint()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1A3D2BD-34DD-4A57-A2F9-D1189E8E260C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "getAuditoryHint()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A1A3D2BD-34DD-4A57-A2F9-D1189E8E260C - 4f990b6bd6afd013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToBeMillionare.GameSessionService.getAuditoryHint() -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "ToBeMillionare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igorivanov/Desktop/Millionare/ToBeMillionare/ToBeMillionare/Services/Game%20Session/GameSessionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "3466">
+               </Location>
+               <Location
+                  uuid = "A1A3D2BD-34DD-4A57-A2F9-D1189E8E260C - 4f990b6bd6afd013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToBeMillionare.GameSessionService.getAuditoryHint() -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "ToBeMillionare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igorivanov/Desktop/Millionare/ToBeMillionare/ToBeMillionare/Services/Game%20Session/GameSessionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "5458">
+               </Location>
+               <Location
+                  uuid = "A1A3D2BD-34DD-4A57-A2F9-D1189E8E260C - 4f990b6bd6afd013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToBeMillionare.GameSessionService.getAuditoryHint() -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "ToBeMillionare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igorivanov/Desktop/Millionare/ToBeMillionare/ToBeMillionare/Services/Game%20Session/GameSessionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "7450">
+               </Location>
+               <Location
+                  uuid = "A1A3D2BD-34DD-4A57-A2F9-D1189E8E260C - 4f990b6bd6afd013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToBeMillionare.GameSessionService.getAuditoryHint() -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "ToBeMillionare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igorivanov/Desktop/Millionare/ToBeMillionare/ToBeMillionare/Services/Game%20Session/GameSessionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "9442">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "555FA9AE-A85C-4E88-88A4-F45A13A44312"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToBeMillionare/View/Call Friends/CallFriendsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "pressHistorian(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5698C8A-B38A-4A9B-88FD-968273310937"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToBeMillionare/Test/CreateDifficultQuestions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1367"
+            endingLineNumber = "1367"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF733009-7D30-4B5B-AC2F-243C899C420C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "isIncluding(curLevel:minLevelEnum:maxLevelEnum:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E66415EE-7C1F-46C5-9D6E-7CB24A7D5F2C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToBeMillionare/Services/Game Session/GameSessionService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "isIncluding(curLevel:minLevelEnum:maxLevelEnum:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

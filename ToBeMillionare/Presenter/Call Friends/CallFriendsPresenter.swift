@@ -3,8 +3,7 @@ import Foundation
 
 final class CallFriendsPresenter {
     
-    private var vc: PresentableCallFriendsView?
-    private var questionId: Int = 0
+    private weak var vc: PresentableCallFriendsView?
     private var usedHint = false
     
     
@@ -25,8 +24,11 @@ extension CallFriendsPresenter: ViewableCallFriendsPresenter {
     func didSelectFriend(occupationEnum: OccupationEnum) {
         guard usedHint == false else { return }
         usedHint = true
-        let questionId = playPresenter.getCurQuestionId()
-        let answer = playPresenter.getFriendAnswer(questionId: questionId, occupationEnum: occupationEnum)
+        let answer = playPresenter.getFriendAnswer(occupationEnum: occupationEnum)
         vc?.showFriendAnswer(answerId: answer.getAnswerId())
+    }
+    
+    func getQuestion() -> String {
+        return playPresenter.getQuestion()
     }
 }

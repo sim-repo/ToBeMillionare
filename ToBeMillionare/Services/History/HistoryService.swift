@@ -35,7 +35,6 @@ final class HistoryService {
     
     
     public func getPassedQuestionIds(gameModeEnum: GameModeEnum, playerId: Int, orderBy: OrderByEnum) -> [Int]? {
-        
         if let histories = getHistories(gameModeEnum: gameModeEnum, playerId: playerId),
             histories.count > 0 {
             

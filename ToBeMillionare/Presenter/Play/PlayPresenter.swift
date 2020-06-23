@@ -16,7 +16,7 @@ final class PlayPresenter {
         return presenter as ReadableProfilePresenter
     }
     
-    internal var curQuestionId: Int = 0
+    internal var curQuestion: ReadableQuestion!
     
     init(){
         gameSessionService = GameSessionService(profile: profilePresenter.getSelected())
@@ -31,9 +31,8 @@ extension PlayPresenter {
     
     internal func showQuestion() {
         vc?.prepareForNextLevel()
-        let question = gameSessionService.getQuestion(curLevel: gameSessionService.getLevel())
-        curQuestionId = question.getQuestionId()
-        vc?.showQuestion(question: question)
+        curQuestion = gameSessionService.getQuestion(curLevel: gameSessionService.getLevel())
+        vc?.showQuestion(question: curQuestion)
     }
     
     internal func goNextLevel() {

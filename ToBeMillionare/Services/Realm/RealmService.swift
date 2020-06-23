@@ -9,7 +9,7 @@ class RealmService {
 // load
 extension RealmService {
     public static func loadQuestions(_ gameMode: GameModeEnum) -> [QuestionModel] {
-        return getEasyQuestions()
+        return getDiffQuestions()
     }
     
     public static func loadLeaderboard(_ gameMode: GameModeEnum) -> [LeaderboardModel]? {

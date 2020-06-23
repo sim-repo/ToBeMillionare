@@ -24,7 +24,7 @@ protocol PresentablePlayView: PresentableView {
     func performScoreSegue()
     func gotoMainMenu()
     func showAuditoryHint(fractionA: Double, fractionB: Double, fractionC: Double, fractionD: Double)
-    func showFiftyPercentHint(wrongFirstAnswerId: String, wrongSecondAnswerId: String)
+    func showFiftyHint(wrongFirstAnswerId: String, wrongSecondAnswerId: String)
     func performCallFriendSegue()
     func showGameOver()
     func showSuccess(levelEnum: LevelEnum, _ completion: (()->Void)?)

@@ -32,20 +32,36 @@ final class GameSessionService {
 //MARK:- functions using static data
 extension GameSessionService {
     
+    private func isIncluding(curLevel: LevelEnum, minLevelEnum: LevelEnum, maxLevelEnum: LevelEnum) -> Bool {
+        
+        let curLevelInt = Int(curLevel.rawValue.replacingOccurrences(of: " ", with: ""))!
+        
+       // print(" \(curLevel) in [\(minLevelEnum)...\(maxLevelEnum)] - \(Int(minLevelEnum.rawValue.replacingOccurrences(of: " ", with: ""))!...Int(maxLevelEnum.rawValue.replacingOccurrences(of: " ", with: ""))! ~= curLevelInt)")
+        return
+            Int(minLevelEnum.rawValue.replacingOccurrences(of: " ", with: ""))!...Int(maxLevelEnum.rawValue.replacingOccurrences(of: " ", with: ""))! ~= curLevelInt
+    }
+    
+    
     public func setQuestions(_ questions: [QuestionModel]) {
         gameSessionModel.setQuestions(questions)
     }
     
+    
     public func getQuestion(curLevel: LevelEnum) -> ReadableQuestion {
-        let questions = gameSessionModel.getQuestions().filter{$0.levelEnum.rawValue == curLevel.rawValue}
+        
+        
+        let questions = gameSessionModel.getQuestions()
+            .filter{ isIncluding(curLevel: curLevel, minLevelEnum: $0.minLevelEnum, maxLevelEnum: $0.maxLevelEnum) }
+        
         
         if let passedIds = historyService.getPassedQuestionIds(gameModeEnum: profile.getGameMode(), playerId: profile.getId(), orderBy: .asc) {
             
             var set1 = Set<Int>()
             for id in passedIds {
-                let q = gameSessionModel.getQuestions().first{$0.id == id }
-                if q?.getLevelEnum() == curLevel {
-                    set1.insert(id)
+                if let passedQuestion = gameSessionModel.getQuestions().first(where: { $0.id == id }) {
+                    if isIncluding(curLevel: curLevel, minLevelEnum: passedQuestion.getMinLevelEnum(), maxLevelEnum: passedQuestion.getMaxLevelEnum()) {
+                        set1.insert(id)
+                    }
                 }
             }
             
@@ -87,28 +103,6 @@ extension GameSessionService {
         return question.getAnswers()
     }
     
-    
-    public func getFriendAnswer(questionId: Int, occupationEnum: OccupationEnum) -> ReadableAnswer {
-        let question = gameSessionModel.getQuestions().first(where: {$0.id == questionId})!
-        
-        if question.occupationEnum == occupationEnum {
-            let trueAnswer = question.getAnswers().first(where: {$0.getIsTrue() == true })
-            return trueAnswer!
-        } else {
-            let answers = question.getAnswers()
-            let rand = Int.random(in: 0...answers.count-1)
-            return answers[rand]
-        }
-    }
-    
-    public func getFiftyPercentWrongIds() -> [String] {
-        let question = gameSessionModel.getQuestions().first(where: {$0.id == curQuestionId})!
-        let wrongFirst = question.answers.first(where: { $0.getIsTrue() == false })!
-        let wrongSecond = question.answers.last(where: { $0.getIsTrue() == false })!
-        
-        return [wrongFirst.getAnswerId(), wrongSecond.getAnswerId()]
-    }
-    
 }
 
 
@@ -146,7 +140,6 @@ extension GameSessionService {
     
     
     
-    
     public func getAward() -> String {
         if let idx = getLevel().index {
             let prevIdx = idx - 1
@@ -157,41 +150,104 @@ extension GameSessionService {
         return ""
     }
     
-    
-    public func getUsedFriendHint() -> Bool {
+    // friend hit:
+    public func isUsedFriendHint() -> Bool {
         return gameSessionModel.getUsedFriendHint()
     }
     
     
-    public func getUsedAuditoryHint() -> Bool {
+    public func getFriendAnswer(occupationEnum: OccupationEnum) -> ReadableAnswer {
+        gameSessionModel.setUsedFriendHint(enabled: true)
+        historyService.setUsedFriendHint(enabled: true)
+        let question = gameSessionModel.getQuestions().first(where: {$0.id == curQuestionId})!
+        
+        if question.occupationEnum == occupationEnum {
+            let trueAnswer = question.getAnswers().first(where: {$0.getIsTrue() == true })
+            return trueAnswer!
+        } else {
+            let answers = question.getAnswers()
+            let rand = Int.random(in: 0...answers.count-1)
+            return answers[rand]
+        }
+    }
+    
+    // auditory hit:
+    public func isUsedAuditoryHint() -> Bool {
         return gameSessionModel.getUsedAuditoryHint()
     }
     
     
-    public func getUsedFiftyHint() -> Bool {
+    public func getAuditoryHint() -> [Double] {
+        
+        gameSessionModel.setUsedAuditoryHint(enabled: true)
+        historyService.setUsedAuditoryHint(enabled: true)
+        
+        let question = gameSessionModel.getQuestions().first(where: {$0.id == curQuestionId})!
+        let trueAnswer = question.getAnswers().first(where: {$0.getIsTrue() == true })
+        
+        let distribution: Int = Int.random(in: 0...2)
+        var percentOfTrue: Int = 0
+        var percentOfWrong1: Int = 0
+        switch distribution {
+        case 0:
+            percentOfTrue = 30
+            percentOfWrong1 = 30
+        case 1:
+            percentOfTrue = 40
+            percentOfWrong1 = 30
+        case 2:
+            percentOfTrue = 50
+            percentOfWrong1 = 20
+        default:
+            break
+        }
+        
+        let percentOfWrong2 = Int.random(in: 0...100 - percentOfTrue - percentOfWrong1)
+        let percentOfWrong3 = Int.random(in: 0...100 - percentOfTrue - percentOfWrong1 - percentOfWrong2 )
+        
+        let trueIdx = trueAnswer?.getAnswerId()
+        
+        var wrongs: [Int] = [percentOfWrong1, percentOfWrong2, percentOfWrong3]
+        wrongs.shuffle()
+        
+        print(Double(percentOfTrue)/100)
+        
+        switch trueIdx {
+        case "A":
+            return [Double(percentOfTrue)/100, Double(wrongs[0])/100, Double(wrongs[1])/100, Double(wrongs[2])/100]
+        case "B":
+          return [Double(wrongs[0])/100, Double(percentOfTrue)/100, Double(wrongs[1])/100, Double(wrongs[2])/100]
+        case "C":
+          return [Double(wrongs[0])/100, Double(wrongs[1])/100, Double(percentOfTrue)/100, Double(wrongs[2])/100]
+        case "D":
+          return [Double(wrongs[0])/100, Double(wrongs[1])/100, Double(wrongs[2])/100, Double(percentOfTrue)/100]
+        default:
+            break
+        }
+        return [0,0,0,0]
+    }
+    
+    
+    // fifty hit:
+    public func isUsedFiftyHint() -> Bool {
         return gameSessionModel.getUsedFiftyHint()
     }
+    
+    public func getFiftyHintWrongIds() -> [String] {
+        gameSessionModel.setUsedFiftyHint(enabled: true)
+        historyService.setUsedFiftyHint(enabled: true)
+        let question = gameSessionModel.getQuestions().first(where: {$0.id == curQuestionId})!
+        let wrongFirst = question.answers.first(where: { $0.getIsTrue() == false })!
+        let wrongSecond = question.answers.last(where: { $0.getIsTrue() == false })!
+        return [wrongFirst.getAnswerId(), wrongSecond.getAnswerId()]
+    }
+    
+    
     
     
     public func setLevel(levelEnum: LevelEnum) {
         gameSessionModel.setLevel(levelEnum: levelEnum)
         historyService.setLevel(levelEnum: levelEnum)
     }
-    
-    
-    public func setUsedFriendHint(enabled: Bool) {
-        gameSessionModel.setUsedFriendHint(enabled: enabled)
-        historyService.setUsedFriendHint(enabled: true)
-    }
-    
-    
-    public func setUsedAuditoryHint(enabled: Bool) {
-        gameSessionModel.setUsedAuditoryHint(enabled: enabled)
-        historyService.setUsedAuditoryHint(enabled: true)
-    }
-    
-    public func setUsedFiftyHint(enabled: Bool) {
-        gameSessionModel.setUsedFiftyHint(enabled: enabled)
-        historyService.setUsedFiftyHint(enabled: true)
-    }
+
 }

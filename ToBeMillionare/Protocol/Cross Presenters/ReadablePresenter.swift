@@ -9,9 +9,9 @@ protocol ReadableProfilePresenter {
 //MARK:- Play
 protocol ReadablePlayPresenter {
     func getLevel() -> LevelEnum
-    func getCurQuestionId() -> Int
+    func getQuestion() -> String
     func getAward() -> String
     func gotoMainMenu()
-    func getFriendAnswer(questionId: Int, occupationEnum: OccupationEnum) -> ReadableAnswer
+    func getFriendAnswer(occupationEnum: OccupationEnum) -> ReadableAnswer
 }
 

@@ -21,7 +21,7 @@ protocol ViewablePlayPresenter: ViewablePresenter {
     func getUsedFriendHint() -> Bool
     func getUsedAuditoryHint() -> Bool
     func getUsedFiftyHint() -> Bool
-    func getQuestion() -> String
+    func getNextQuestion() -> String
     func getAnswers() -> [ReadableAnswer]
     func didPressUseFriendHint()
     func didPressUseAuditoryHint()
@@ -81,6 +81,7 @@ protocol ViewableScorePresenter: ViewablePresenter {
 //MARK:- Call Friends
 protocol ViewableCallFriendsPresenter: ViewablePresenter {
     func didSelectFriend(occupationEnum: OccupationEnum)
+    func getQuestion() -> String
 }
 
 

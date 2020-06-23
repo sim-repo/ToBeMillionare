@@ -4,15 +4,17 @@ import Foundation
 final class QuestionModel: Codable {
  
     var id: Int
-    var levelEnum: LevelEnum
+    var minLevelEnum: LevelEnum
+    var maxLevelEnum: LevelEnum
     var question: String
     var answers: [AnswerModel]
     var gameModeEnum: GameModeEnum
     var occupationEnum: OccupationEnum
     
-    init(id: Int, levelEnum: LevelEnum, question: String, answers: [AnswerModel], gameModeEnum: GameModeEnum, occupationEnum: OccupationEnum) {
+    init(id: Int, minLevelEnum: LevelEnum, maxLevelEnum: LevelEnum, question: String, answers: [AnswerModel], gameModeEnum: GameModeEnum, occupationEnum: OccupationEnum) {
         self.id = id
-        self.levelEnum = levelEnum
+        self.minLevelEnum = minLevelEnum
+        self.maxLevelEnum = maxLevelEnum
         self.question = question
         self.answers = answers
         self.gameModeEnum = gameModeEnum
@@ -26,7 +28,8 @@ final class QuestionModel: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case levelEnum
+        case minLevelEnum
+        case maxLevelEnum
         case question
         case answers
         case gameModeEnum
@@ -37,7 +40,8 @@ final class QuestionModel: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
-        try container.encode(levelEnum.rawValue, forKey: .levelEnum)
+        try container.encode(minLevelEnum.rawValue, forKey: .minLevelEnum)
+        try container.encode(maxLevelEnum.rawValue, forKey: .maxLevelEnum)
         try container.encode(question, forKey: .question)
         try container.encode(answers, forKey: .answers)
         try container.encode(gameModeEnum.rawValue, forKey: .gameModeEnum)
@@ -51,9 +55,11 @@ final class QuestionModel: Codable {
         question = try container.decode(String.self, forKey: .question)
         self.answers = try container.decode([AnswerModel].self, forKey: .answers)
         
-        let stringLevel = try container.decode(String.self, forKey: .levelEnum)
-        self.levelEnum = LevelEnum.init(rawValue: stringLevel)!
+        var stringLevel = try container.decode(String.self, forKey: .minLevelEnum)
+        self.minLevelEnum = LevelEnum.init(rawValue: stringLevel)!
      
+        stringLevel = try container.decode(String.self, forKey: .maxLevelEnum)
+        self.maxLevelEnum = LevelEnum.init(rawValue: stringLevel)!
         
         let stringGameMode = try container.decode(String.self, forKey: .gameModeEnum)
         self.gameModeEnum = GameModeEnum.init(rawValue: stringGameMode)!
@@ -83,7 +89,11 @@ extension QuestionModel: ReadableQuestion {
         return gameModeEnum
     }
     
-    func getLevelEnum() -> LevelEnum {
-        return levelEnum
+    func getMinLevelEnum() -> LevelEnum {
+        return minLevelEnum
+    }
+    
+    func getMaxLevelEnum() -> LevelEnum {
+        return minLevelEnum
     }
 }

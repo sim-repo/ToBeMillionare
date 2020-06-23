@@ -36,7 +36,7 @@ class MenuViewController: UIViewController {
         view.backgroundColor = TBMStyleKit.mainBackground
         logoToBeLabel.textColor = TBMStyleKit.primaryTextColor
         logoIllionareLabel.textColor = TBMStyleKit.primaryTextColor
-        logoMView.backgroundColor = TBMStyleKit.mainBackground
+        logoMView.backgroundColor = .clear
     }
     
     private func buttonSetup(){

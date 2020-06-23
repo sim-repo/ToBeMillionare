@@ -22,15 +22,15 @@ extension PlayPresenter: ReadablePlayPresenter {
         return gameSessionService.getLevel()
     }
     
-    func getCurQuestionId() -> Int {
-        return curQuestionId
+    func getQuestion() -> String {
+        return curQuestion.getQuestionText()
     }
     
     func getAward() -> String {
         return gameSessionService.getAward()
     }
     
-    func getFriendAnswer(questionId: Int, occupationEnum: OccupationEnum) -> ReadableAnswer {
-        return gameSessionService.getFriendAnswer(questionId: questionId, occupationEnum: occupationEnum)
+    func getFriendAnswer(occupationEnum: OccupationEnum) -> ReadableAnswer {
+        return gameSessionService.getFriendAnswer(occupationEnum: occupationEnum)
     }
 }

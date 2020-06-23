@@ -165,7 +165,7 @@ extension PlayViewController: PresentablePlayView {
     }
     
     
-    func showFiftyPercentHint(wrongFirstAnswerId: String, wrongSecondAnswerId: String) {
+    func showFiftyHint(wrongFirstAnswerId: String, wrongSecondAnswerId: String) {
         
         if wrongFirstAnswerId == "A" || wrongSecondAnswerId == "A" {
             setVisibility(left: answer1LeftBlockView, central: answer1CentralBlockView, right: answer1RightBlockView, isHidden: true)

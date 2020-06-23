@@ -31,7 +31,7 @@ added screen "game over"
 <br>
 <br>
 
-19.06.18 (June 19, 2020) <br>
+20.06.19 (June 19, 2020) <br>
 
 v.0.8.2
 ENHANCEMENTS: <br>
@@ -39,9 +39,18 @@ refactoring: remove entity "Game"
 
 
 
-22.06.18 (June 22, 2020) <br>
+20.06.22 (June 22, 2020) <br>
 
 v.0.8.3 
 NEW FEATURES: <br>
 fill/select questions <br>
 load/save history <br>
+
+
+
+20.06.23 (June 23, 2020) <br>
+
+v.0.8.4 
+NEW FEATURES: <br>
+question categories<br>
+range questions by difficult<br>
