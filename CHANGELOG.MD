@@ -54,3 +54,17 @@ v.0.8.4
 NEW FEATURES: <br>
 question categories<br>
 range questions by difficult<br>
+
+
+20.09.11 (Sep 11, 2020) <br>
+
+v.0.9.0
+NEW FEATURES: <br>
+achevements<br>
+bonus<br>
+new menu<br>
+new play screen<br>
+onboarding<br>
+progress screen<br>
+spaceship screen<br>
+solar system screen<br>
