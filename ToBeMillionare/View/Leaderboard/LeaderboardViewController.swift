@@ -1,5 +1,6 @@
 import UIKit
 
+
 class LeaderboardViewController: UIViewController {
     
     var presenter: ViewableLeaderboardPresenter {
@@ -16,6 +17,7 @@ class LeaderboardViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+
 
 
 extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate {

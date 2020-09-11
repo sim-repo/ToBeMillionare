@@ -4,17 +4,17 @@ import Foundation
 final class QuestionModel: Codable {
  
     var id: Int
-    var minLevelEnum: LevelEnum
-    var maxLevelEnum: LevelEnum
+    var minRoundEnum: RoundEnum
+    var maxRoundEnum: RoundEnum
     var question: String
     var answers: [AnswerModel]
     var gameModeEnum: GameModeEnum
     var occupationEnum: OccupationEnum
     
-    init(id: Int, minLevelEnum: LevelEnum, maxLevelEnum: LevelEnum, question: String, answers: [AnswerModel], gameModeEnum: GameModeEnum, occupationEnum: OccupationEnum) {
+    init(id: Int, minRoundEnum: RoundEnum, maxRoundEnum: RoundEnum, question: String, answers: [AnswerModel], gameModeEnum: GameModeEnum, occupationEnum: OccupationEnum) {
         self.id = id
-        self.minLevelEnum = minLevelEnum
-        self.maxLevelEnum = maxLevelEnum
+        self.minRoundEnum = minRoundEnum
+        self.maxRoundEnum = maxRoundEnum
         self.question = question
         self.answers = answers
         self.gameModeEnum = gameModeEnum
@@ -28,8 +28,8 @@ final class QuestionModel: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case minLevelEnum
-        case maxLevelEnum
+        case minRoundEnum
+        case maxRoundEnum
         case question
         case answers
         case gameModeEnum
@@ -40,8 +40,8 @@ final class QuestionModel: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
-        try container.encode(minLevelEnum.rawValue, forKey: .minLevelEnum)
-        try container.encode(maxLevelEnum.rawValue, forKey: .maxLevelEnum)
+        try container.encode(minRoundEnum.rawValue, forKey: .minRoundEnum)
+        try container.encode(maxRoundEnum.rawValue, forKey: .maxRoundEnum)
         try container.encode(question, forKey: .question)
         try container.encode(answers, forKey: .answers)
         try container.encode(gameModeEnum.rawValue, forKey: .gameModeEnum)
@@ -55,11 +55,11 @@ final class QuestionModel: Codable {
         question = try container.decode(String.self, forKey: .question)
         self.answers = try container.decode([AnswerModel].self, forKey: .answers)
         
-        var stringLevel = try container.decode(String.self, forKey: .minLevelEnum)
-        self.minLevelEnum = LevelEnum.init(rawValue: stringLevel)!
+        var stringRound = try container.decode(Int.self, forKey: .minRoundEnum)
+        self.minRoundEnum = RoundEnum.init(rawValue: stringRound)!
      
-        stringLevel = try container.decode(String.self, forKey: .maxLevelEnum)
-        self.maxLevelEnum = LevelEnum.init(rawValue: stringLevel)!
+        stringRound = try container.decode(Int.self, forKey: .maxRoundEnum)
+        self.maxRoundEnum = RoundEnum.init(rawValue: stringRound)!
         
         let stringGameMode = try container.decode(String.self, forKey: .gameModeEnum)
         self.gameModeEnum = GameModeEnum.init(rawValue: stringGameMode)!
@@ -72,7 +72,7 @@ final class QuestionModel: Codable {
 //MARK:- Readable
 
 extension QuestionModel: ReadableQuestion {
-    
+
     func getQuestionId() -> Int {
         return id
     }
@@ -89,11 +89,11 @@ extension QuestionModel: ReadableQuestion {
         return gameModeEnum
     }
     
-    func getMinLevelEnum() -> LevelEnum {
-        return minLevelEnum
+    func getMinRoundEnum() -> RoundEnum {
+        return minRoundEnum
     }
     
-    func getMaxLevelEnum() -> LevelEnum {
-        return minLevelEnum
+    func getMaxRoundEnum() -> RoundEnum {
+        return minRoundEnum
     }
 }

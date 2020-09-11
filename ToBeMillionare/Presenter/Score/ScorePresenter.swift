@@ -4,8 +4,8 @@ import Foundation
 final class ScorePresenter: PresenterProtocol {
     
     
-    private var prevLevelEnum: LevelEnum?
-    private var curLevelEnum: LevelEnum?
+    private var prevRoundEnum: RoundEnum?
+    private var curRoundEnum: RoundEnum?
     
     private weak var vc: PresentableScoreView?
 }
@@ -13,10 +13,9 @@ final class ScorePresenter: PresenterProtocol {
 
 //MARK:- Writable
 extension ScorePresenter: WritableScorePresenter {
-    
-    func setLevel(prevLevelEnum: LevelEnum, curLevelEnum: LevelEnum) {
-        self.prevLevelEnum = prevLevelEnum
-        self.curLevelEnum = curLevelEnum
+    func setRound(prevRoundEnum: RoundEnum, curRoundEnum: RoundEnum) {
+        self.prevRoundEnum = prevRoundEnum
+        self.curRoundEnum = curRoundEnum
     }
 }
 
@@ -27,12 +26,12 @@ extension ScorePresenter: ViewableScorePresenter {
     }
     
     func viewDidAppear() {
-        guard let prevLevelEnum = prevLevelEnum,
-              let curLevelEnum = curLevelEnum
+        guard let prevRoundEnum = prevRoundEnum,
+              let curRoundEnum = curRoundEnum
             else {
                 //TODO err
                 return }
         
-        vc?.startAnimate(prevLevelEnum: prevLevelEnum, curLevelEnum: curLevelEnum)
+        vc?.startAnimate(prevRoundEnum: prevRoundEnum, curRoundEnum: curRoundEnum)
     }
 }

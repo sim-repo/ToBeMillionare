@@ -14,23 +14,73 @@ import Foundation
 
 extension PlayPresenter: ReadablePlayPresenter {
     
-    func gotoMainMenu() {
-        vc?.gotoMainMenu()
+    func getActualCurrency() -> CurrencyEnum {
+        return sessionService.getActualCurrency()
     }
     
-    func getLevel() -> LevelEnum {
-        return gameSessionService.getLevel()
+    func gotoMainMenu(deepness: Int) {
+        vc?.gotoMainMenu(deepness: deepness)
+    }
+    
+    func getRound() -> RoundEnum {
+        return sessionService.getRound()
     }
     
     func getQuestion() -> String {
         return curQuestion.getQuestionText()
     }
     
-    func getAward() -> String {
-        return gameSessionService.getAward()
+    func getAward() -> Double {
+        return sessionService.getAward()
     }
     
     func getFriendAnswer(occupationEnum: OccupationEnum) -> ReadableAnswer {
-        return gameSessionService.getFriendAnswer(occupationEnum: occupationEnum)
+        return sessionService.getFriendAnswer(occupationEnum: occupationEnum)
+    }
+    
+    func getDepo() -> Double {
+        return sessionService.profile.getDepo()
+    }
+    
+    func getMinAward() -> Double {
+        tmpAward = sessionService.getMinAward()
+        return tmpAward
+    }
+    
+    func getMinBetSum() -> Double {
+        return sessionService.getBetMinSum()
+    }
+    
+    func getFireproofRound(_ cachedDepo: Double? = nil) -> Int {
+        return sessionService.getFireproofRound(cachedDepo: cachedDepo).rawValue
+    }
+    
+    func canSelectBet() -> Bool {
+        return sessionService.canSelectBet()
+    }
+    
+    func getBetSum() -> Double {
+        return sessionService.getBetSum()
+    }
+    
+    func getStageAim() -> Double {
+        return sessionService.getStageAim()
+    }
+    
+    func getGamesCount() -> Int {
+        return sessionService.getGamesCount()
+    }
+    
+    func getStage() -> Int {
+        return sessionService.getStage()
+    }
+    
+    func getDaysLeftBeforeDisaster() -> Int {
+        return sessionService.getDaysBeforeDisaster()
+    }
+    
+    func getZondRecovery() -> Int {
+        let zondRecovery = Int(Double(getStage()) * 14.29)
+        return zondRecovery
     }
 }

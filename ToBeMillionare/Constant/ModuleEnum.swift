@@ -9,9 +9,8 @@ enum ModuleEnum: String {
     case menu
     case leaderboard
     case play
-    case score
     case callFriends
-    case finish
+    case progress
     case unknown
     
     
@@ -27,14 +26,12 @@ enum ModuleEnum: String {
             self = .menu
         case is LeaderboardViewController:
             self = .leaderboard
-        case is PlayViewController:
+        case is PlayV2ViewController:
             self = .play
         case is CallFriendsViewController:
             self = .callFriends
-        case is ScoreViewController:
-            self = .score
-        case is FinishViewController:
-            self = .finish
+        case is ProgressViewController:
+            self = .progress
         default:
             //TODO: catch err
             self = .unknown
@@ -58,10 +55,8 @@ enum ModuleEnum: String {
             self = .play
         case is CallFriendsPresenter:
             self = .callFriends
-        case is ScorePresenter:
-            self = .score
-        case is FinishPresenter:
-            self = .finish
+        case is ProgressPresenter:
+            self = .progress
         default:
             //TODO: catch err
             self = .unknown
@@ -85,10 +80,8 @@ enum ModuleEnum: String {
             self = .play
         case is CallFriendsPresenter.Type:
             self = .callFriends
-        case is ScorePresenter.Type:
-            self = .score
-        case is FinishPresenter.Type:
-            self = .finish
+        case is ProgressPresenter.Type:
+            self = .progress
         default:
             //TODO: catch err
             self = .unknown
@@ -112,10 +105,8 @@ enum ModuleEnum: String {
             return PlayPresenter.self
         case .callFriends:
             return CallFriendsPresenter.self
-        case .score:
-            return ScorePresenter.self
-        case .finish:
-            return FinishPresenter.self
+        case .progress:
+            return ProgressPresenter.self
         default:
             //TODO: catch err
             return ProfilePresenter.self

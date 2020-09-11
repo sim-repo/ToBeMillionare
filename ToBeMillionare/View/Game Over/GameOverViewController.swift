@@ -10,6 +10,10 @@ import UIKit
 
 class GameOverViewController: UIViewController {
 
+  
+    @IBOutlet var bkgView: UIView!
+    @IBOutlet weak var label: UILabel!
+    
     private var playPresenter: ReadablePlayPresenter {
         let presenter: PlayPresenter = PresenterFactory.shared.getInstance()
         return presenter as ReadablePlayPresenter
@@ -19,10 +23,15 @@ class GameOverViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    deinit {
+        print("------------------DEINIT------------------")
+        print("........GameOverViewController................")
+        print("------------------------------------------")
+    }
+    
     @IBAction func pressBackMenu(_ sender: Any) {
-        dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.playPresenter.gotoMainMenu()
-        }
+        bkgView.backgroundColor = .black
+        label.isHidden = true
+        self.performSegue(withIdentifier: "SegueStat", sender:  nil)
     }
 }

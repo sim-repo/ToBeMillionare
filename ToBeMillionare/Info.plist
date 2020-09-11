@@ -4,7 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+        <string>Gilroy-Bold.ttf</string>
 		<string>Gilroy-Regular.ttf</string>
+        <string>Gilroy-Light.ttf</string>
 		<string>Play-Bold.ttf</string>
 		<string>Play-Regular.ttf</string>
 	</array>

@@ -118,3 +118,17 @@ button "Добавить" - builder.build()
 cairosvg play.svg -o play.pdf
 
 
+Ошибка: 50x50
+Выборка вопросов
+
+
+
+City Skyscrapers Isometric Set
+Smart home elements isometric icons collection
+Astronautics equipment isometric illustration
+
+Futuristic hud interface with gradient style
+Isometric mars colonization
+
+Mars colonization isometric composition
+engineering isometric

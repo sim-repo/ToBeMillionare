@@ -8,7 +8,7 @@ protocol PresentableView: class {
 //MARK:- Menu
 protocol PresentableMenuView: PresentableView {
     func performPlaySegue()
-    func performLeaderboardSegue()
+    func performProgressSegue()
     func performOptionsSegue()
 }
 
@@ -17,26 +17,39 @@ protocol PresentableMenuView: PresentableView {
 protocol PresentablePlayView: PresentableView {
     func startCountdown()
     func stopCountdown()
-    func showNextLevelView(levelEnum: LevelEnum)
-    func prepareForNextLevel()
-    func showQuestion(question: ReadableQuestion)
-    func perfomFinishSegue()
-    func performScoreSegue()
-    func gotoMainMenu()
+    func showNextRoundView(nextRoundEnum: RoundEnum)
+    func showQuestion(roundEnum: RoundEnum, question: ReadableQuestion)
+    func performSegueStat()
+    func performSegueNextStage(stageNum: Int, zondRecovery: Int, daysBeforeDisaster: Int)
+    func performSegueCallFriend()
+    func gotoMainMenu(deepness: Int)
     func showAuditoryHint(fractionA: Double, fractionB: Double, fractionC: Double, fractionD: Double)
     func showFiftyHint(wrongFirstAnswerId: String, wrongSecondAnswerId: String)
-    func performCallFriendSegue()
     func showGameOver()
-    func showSuccess(levelEnum: LevelEnum, _ completion: (()->Void)?)
-    func openTrueAnswer(_ rightAnswerId: String, _ completion: (()->Void)?)
-    func startBlinkAnimation(_ selectedAnswerId: String, _ completion: (()->Void)?)
+    func showSuccess(nextRoundEnum: RoundEnum, roundAward: Int, fireproofRemaining: Int, _ completion: (()->Void)?)
+    func openTrueAnswer(_ roundEnum: RoundEnum, _ selectedAnswerId: String, _ rightAnswerId: String, _ completion: (()->Void)?)
     func blur(enabled: Bool)
+    func showAchievement(achievementEnum: AchievementEnum)
+    func showDialogRenewFireproof(title: String, desc: String)
+    func showNotification(text: String)
+}
+
+
+//MARK:- Progress
+protocol PresentableProgressView: PresentableView {
+    func showRetensionIconBonus(hasBonus: Bool)
+    func showSpeedIconBonus(hasBonus: Bool)
+    func showDegreeIconBonus(hasBonus: Bool)
+    
+    func startRetensionBonusAnimation(bonusText: String)
+    func startSpeedBonusAnimation(bonusText: String)
+    func startDegreeBonusAnimation(bonusText: String)
 }
 
 
 //MARK:- Score
 protocol PresentableScoreView: PresentableView {
-    func startAnimate(prevLevelEnum: LevelEnum, curLevelEnum: LevelEnum)
+    func startAnimate(prevRoundEnum: RoundEnum, curRoundEnum: RoundEnum)
 }
 
 
@@ -49,6 +62,7 @@ protocol PresentableLeaderboardView: PresentableView {
 protocol PresentableProfileView: PresentableView {
     func performNewProfileSegue()
     func performMainSegue()
+    func blink(itemIdx: Int)
 }
 
 //MARK:- New Profile
@@ -73,7 +87,7 @@ protocol PresentableCallFriendsView: PresentableView {
     func showFriendAnswer(answerId: String)
 }
 
-//MARK:- Finnish
+//MARK:- Finish
 protocol PresentableFinishView: PresentableView {
     func gotoMainMenu()
 }

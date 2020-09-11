@@ -17,6 +17,7 @@ class NewProfileViewController: UIViewController {
         agePickerView.isHidden = true
     }
     
+
     
     @IBAction func pressOk(_ sender: Any) {
         presenter.didSubmitProfile()
@@ -71,6 +72,11 @@ extension NewProfileViewController: UITextFieldDelegate {
          if textField == self.nameTextField {
             presenter.didInputName(name: textField.text ?? "")
          }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 }
 

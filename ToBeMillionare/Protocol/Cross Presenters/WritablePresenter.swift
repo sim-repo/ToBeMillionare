@@ -2,13 +2,19 @@ import Foundation
 
 
 //MARK:- Profile
-protocol WritableProfilePresenter {
+protocol OptionableProfilePresenter: ReadableProfilePresenter {
     func setGameMode(modeEnum: GameModeEnum)
-    func setCreatedProfile(created: ProfileModel)
 }
+
 
 //MARK:- Score
-protocol WritableScorePresenter {
-    func setLevel(prevLevelEnum: LevelEnum, curLevelEnum: LevelEnum)
+protocol WritableScorePresenter: class {
+    func setRound(prevRoundEnum: RoundEnum, curRoundEnum: RoundEnum)
 }
 
+
+
+//MARK:- Play
+protocol WritablePlayPresenter: class {
+    func setBetPercentOfDepo(betPercentOfDepo: Double)
+}

@@ -5,17 +5,30 @@ final class ProfilePresenter {
     
     private var vc: PresentableProfileView?
     
-    private var profiles: [ProfileModel] = []
-    private var selected: ProfileModel?
+    //#0004:
+    private var avaBlinkIdx: Int = 0
+    private var timer: Timer?
     
-    required init(){
-        profiles = ProfileService.loadProfiles()
+    
+    
+    required init(){}
+    
+    private func getProfiles() -> [ProfileModel] {
+        return ProfileService.getProfiles()
+    }
+    
+    private func getSelectedProfile() -> ProfileModel? {
+        return ProfileService.getSelected()
     }
 }
 
 
 //MARK:- Viewable
 extension ProfilePresenter: ViewableProfilePresenter {
+    
+    func viewDidAppear() {
+        startBlink()
+    }
     
     
     func setView(vc: PresentableView) {
@@ -24,25 +37,25 @@ extension ProfilePresenter: ViewableProfilePresenter {
     
     
     func numberOfRowsInSection() -> Int {
-        return profiles.count
+        return getProfiles().count
     }
     
     
     func getData(_ indexPath: IndexPath) -> ReadableProfile? {
-        return profiles[indexPath.row]
+        return getProfiles()[indexPath.row]
     }
     
     func isSelected(_ indexPath: IndexPath) -> Bool {
-        guard let selected = selected else { return false }
-        let profile = profiles[indexPath.row]
+        guard let selected = getSelectedProfile() else { return false }
+        let profile = getProfiles()[indexPath.row]
         return profile.getId() == selected.getId()
     }
     
     
     func didSelectProfile(_ indexPath: IndexPath) {
-        selected = profiles[indexPath.row]
-
-        if selected!.isFakeProfile() {
+        ProfileService.setSelected(row: indexPath.row)
+        
+        if getSelectedProfile()!.isFakeProfile() {
             vc?.performNewProfileSegue()
             return
         }
@@ -50,9 +63,25 @@ extension ProfilePresenter: ViewableProfilePresenter {
     }
     
     func didDeselectProfile(_ indexPath: IndexPath) {
-        selected = nil
+        ProfileService.deselect()
     }
-
+    
+   
+    
+    //#0004
+    func startBlink() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.restartBlink), userInfo: nil, repeats: true)
+    }
+    
+    //#0004
+    @objc private func restartBlink() {
+       avaBlinkIdx += 1
+       if avaBlinkIdx == numberOfRowsInSection() {
+           avaBlinkIdx = 0
+       }
+       vc?.blink(itemIdx: avaBlinkIdx)
+    }
 }
 
 
@@ -60,20 +89,18 @@ extension ProfilePresenter: ViewableProfilePresenter {
 extension ProfilePresenter: ReadableProfilePresenter {
     
     func getSelected() -> ReadableProfile {
-        return selected!
+        return getSelectedProfile()!
     }
 }
 
 
-//MARK:- Writable
-extension ProfilePresenter: WritableProfilePresenter {
-    
-    func setCreatedProfile(created: ProfileModel) {
-        selected = created
-        profiles.append(created)
-    }
-    
+
+//MARK:- Optionable
+extension ProfilePresenter: OptionableProfilePresenter {
     func setGameMode(modeEnum: GameModeEnum) {
-        selected?.setGameMode(modeEnum: modeEnum)
+        getSelectedProfile()?.setGameMode(modeEnum: modeEnum)
     }
 }
+
+
+

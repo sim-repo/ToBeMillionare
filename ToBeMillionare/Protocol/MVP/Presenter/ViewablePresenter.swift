@@ -12,26 +12,60 @@ protocol ViewableMenuPresenter: ViewablePresenter {
     func didPressLeaderboard()
     func didPressOptions()
     func viewDidAppear()
+    func getAvaURL() -> URL
+    func getDepo() -> Double
+    func getCurrentStage() -> Int
+    func getCurrencySymbol() -> String
 }
 
 
 
 //MARK:- Play
 protocol ViewablePlayPresenter: ViewablePresenter {
+    func viewDidAppear()
+    func didShownAllQuestions()
+    func didNextRoundAnimated()
+    func didPressUseFriendHint()
+    func didPressUseAuditoryHint()
+    func didPressUseFiftyHint()
+    func didPressSelectAnswer(selectedAnswerId: String, spentTime: Int)
+    func didPressFinish()
+    func didPressDialogIsContinue(isContinue: Bool)
+    func didTimeout()
     func getUsedFriendHint() -> Bool
     func getUsedAuditoryHint() -> Bool
     func getUsedFiftyHint() -> Bool
     func getNextQuestion() -> String
     func getAnswers() -> [ReadableAnswer]
-    func didPressUseFriendHint()
-    func didPressUseAuditoryHint()
-    func didPressUseFiftyHint()
-    func didPressSelectAnswer(selectedAnswerId: String)
-    func didPressFinish()
-    func didTimeout()
-    func viewDidAppear()
-    func didNextLevelAnimated()
+    func getDepo() -> Double
+    func getStageAim() -> Double
 }
+
+
+//MARK:- Progress
+protocol ViewableProgressPresenter: ViewablePresenter {
+    
+    func viewWillAppear()
+    func radar_getCurrentRetension() -> Double
+    func radar_getCurrentSpeed() -> Double
+    func radar_getCurrentDegree() -> Double
+    
+    func bar_getCurrentRetension() -> Double
+    func bar_getCurrentSpeed() -> Double
+    func bar_getCurrentDegree() -> Double
+    
+    func bar_getSpeedByDays() -> [Double]?
+    func bar_getRetensionByDays() -> [Double]?
+    func bar_getDegreeByDays() -> [Double]?
+    
+    func bar_getTargetLineY(achievementGroupEnum : AchievementGroupEnum) -> Double
+    func bar_getTargetLineText(achievementGroupEnum : AchievementGroupEnum) -> String?
+    
+    func didPressBonusRetension()
+    func didPressBonusSpeed()
+    func didPressBonusDegree()
+}
+
 
 
 //MARK:- Leaderboard
@@ -51,6 +85,7 @@ protocol ViewableOptionsPresenter: ViewablePresenter {
 
 //MARK:- Profile
 protocol ViewableProfilePresenter: ViewablePresenter {
+    func viewDidAppear()
     func numberOfRowsInSection() -> Int
     func getData(_ indexPath: IndexPath) -> ReadableProfile?
     func isSelected(_ indexPath: IndexPath) -> Bool
@@ -90,5 +125,5 @@ protocol ViewableCallFriendsPresenter: ViewablePresenter {
 //MARK:- Finish
 protocol ViewableFinishPresenter: ViewablePresenter {
     func getPlayerName() -> String
-    func getAward() -> String
+    func getAward() -> Double
 }

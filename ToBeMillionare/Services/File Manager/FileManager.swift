@@ -24,7 +24,7 @@ class FilesManager {
         fileManager = FileManager()
         fileManager = .default
     }
-        
+    
     static let shared: FilesManager = FilesManager()
     
     func save(fileNamed: String, data: Data) throws {
@@ -59,6 +59,7 @@ class FilesManager {
         //     throw Error.fileNotExists
         //  }
         print(url)
+        
         do {
             return try Data(contentsOf: url)
         } catch {
@@ -67,6 +68,35 @@ class FilesManager {
         }
     }
 }
+
+
+//MARK:- Profile
+extension FilesManager {
+    
+    func saveProfiles(profiles: [ProfileModel]) {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(profiles)
+            try save(fileNamed: "profiles", data: data)
+        } catch let err {
+            print(err)
+        }
+    }
+    
+    
+    func loadProfiles() -> [ProfileModel]? {
+        do {
+            let data = try read(fileNamed: "profiles")
+            let decoder = JSONDecoder()
+            let profiles = try decoder.decode([ProfileModel].self, from: data)
+            return profiles
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+}
+
 
 
 //MARK:- History
@@ -94,5 +124,43 @@ extension FilesManager {
         }
         return nil
     }
+    
+    func emergencyRemoveHistory(gameModeEnum: GameModeEnum, playerId: Int){
+        do {
+            guard let url = makeURL(forFileNamed: "history_\(gameModeEnum.rawValue)_\(playerId)") else {
+                throw Error.invalidDirectory
+            }
+            try fileManager.removeItem(at: url)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
+
+//MARK:- Bonus History
+extension FilesManager {
+    
+    func saveBonusHistory(playerId: Int, histories: [BonusHistoryModel]) {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(histories)
+            try save(fileNamed: "bonus_\(playerId)", data: data)
+        } catch let err {
+            print(err)
+        }
+    }
+    
+    
+    func loadBonusHistories(playerId: Int) -> [BonusHistoryModel]? {
+        do {
+            let data = try read(fileNamed: "bonus_\(playerId)")
+            let decoder = JSONDecoder()
+            let bonus = try decoder.decode([BonusHistoryModel].self, from: data)
+            return bonus
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+}

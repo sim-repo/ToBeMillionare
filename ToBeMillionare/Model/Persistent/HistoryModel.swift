@@ -5,29 +5,28 @@ final class HistoryModel: Codable {
     private var id: Int = 0
     private var playerId: Int = 0
     private var date: Date
-    private var passedQuestionIds: [Int]?
-    private var levelEnum: LevelEnum = .level1
-    private var usedFriendHint: Bool = false
-    private var usedAuditoryHint: Bool = false
-    private var usedFiftyHint: Bool = false
+    private var passedQuestionIds: [Int] = []
+    private var roundEnum: RoundEnum = .round1
+    private var accumulatedResponseTime: Int = 0
+    private var betPercentOfDepo: Double = 0
+    private var betResult: Double = 0
     
-    internal init(id: Int, playerId: Int) {
+    internal init(id: Int, playerId: Int, date: Date) {
         self.id = id
         self.playerId = playerId
-        self.date = Date()
+        self.date = date
     }
     
     //MARK:- Codable >>
-    
     enum CodingKeys: String, CodingKey {
         case id
         case playerId
         case date
         case passedQuestionIds
-        case levelEnum
-        case usedFriendHint
-        case usedAuditoryHint
-        case usedFiftyHint
+        case roundEnum
+        case accumulatedResponseTime
+        case betPercentOfDepo
+        case betResult
     }
     
     
@@ -37,10 +36,10 @@ final class HistoryModel: Codable {
         try container.encode(playerId, forKey: .playerId)
         try container.encode(date, forKey: .date)
         try container.encode(passedQuestionIds, forKey: .passedQuestionIds)
-        try container.encode(levelEnum.rawValue, forKey: .levelEnum)
-        try container.encode(usedFriendHint, forKey: .usedFriendHint)
-        try container.encode(usedAuditoryHint, forKey: .usedAuditoryHint)
-        try container.encode(usedFiftyHint, forKey: .usedFiftyHint)
+        try container.encode(roundEnum.rawValue, forKey: .roundEnum)
+        try container.encode(accumulatedResponseTime, forKey: .accumulatedResponseTime)
+        try container.encode(betPercentOfDepo, forKey: .betPercentOfDepo)
+        try container.encode(betResult, forKey: .betResult)
     }
     
     
@@ -50,11 +49,11 @@ final class HistoryModel: Codable {
         playerId = try container.decode(Int.self, forKey: .playerId)
         date = try container.decode(Date.self, forKey: .date)
         passedQuestionIds = try container.decode([Int].self, forKey: .passedQuestionIds)
-        usedFriendHint = try container.decode(Bool.self, forKey: .usedFriendHint)
-        usedAuditoryHint = try container.decode(Bool.self, forKey: .usedAuditoryHint)
-        usedFiftyHint = try container.decode(Bool.self, forKey: .usedFiftyHint)
-        let stringLevel = try container.decode(String.self, forKey: .levelEnum)
-        self.levelEnum = LevelEnum.init(rawValue: stringLevel)!
+        let stringRound = try container.decode(Int.self, forKey: .roundEnum)
+        self.roundEnum = RoundEnum.init(rawValue: stringRound)!
+        accumulatedResponseTime = try container.decode(Int.self, forKey: .accumulatedResponseTime)
+        betPercentOfDepo = try container.decode(Double.self, forKey: .betPercentOfDepo)
+        betResult = try container.decode(Double.self, forKey: .betResult)
     }
 }
 
@@ -64,68 +63,61 @@ final class HistoryModel: Codable {
 
 extension HistoryModel {
     
-    func setDate(date: Date) {
-        self.date = date
-    }
-    
     func setPassedQuestion(questionId: Int) {
-        if passedQuestionIds == nil {
-            passedQuestionIds = []
-        }
-        passedQuestionIds?.append(questionId)
+        passedQuestionIds.append(questionId)
     }
     
-    func setLevel(levelEnum: LevelEnum) {
-        self.levelEnum = levelEnum
+    func setRound(roundEnum: RoundEnum) {
+        self.roundEnum = roundEnum
     }
     
-    public func setUsedFriendHint(enabled: Bool) {
-        usedFriendHint = enabled
+    func setAccumulatedResponseTime(accumulatedResponseTime: Int) {
+        self.accumulatedResponseTime = accumulatedResponseTime
     }
     
-    public func setUsedAuditoryHint(enabled: Bool) {
-        usedAuditoryHint = enabled
+    func setBetPercentOfDepo(percent: Double) {
+        self.betPercentOfDepo = percent
     }
     
-    public func setUsedFiftyHint(enabled: Bool) {
-        usedFiftyHint = enabled
+    func setBetResult(sum: Double) {
+        self.betResult = sum
     }
 }
 
 
 //MARK:- getters
 
-extension HistoryModel {
+extension HistoryModel: ReadableHistory {
     
-    public func getId() -> Int {
+    func getId() -> Int {
         return id
     }
     
-    public func getPlayerId() -> Int {
+    func getPlayerId() -> Int {
         return playerId
     }
     
-    public func getLevel() -> LevelEnum? {
-        return levelEnum
+    func getRound() -> RoundEnum {
+        return roundEnum
     }
     
-    public func getDate() -> Date {
+    func getDate() -> Date {
         return date
     }
     
-    public func getPassedQuestionIds() -> [Int]? {
+    func getPassedQuestionIds() -> [Int] {
         return passedQuestionIds
     }
     
-    public func getUsedFriendHint() -> Bool {
-        return usedFriendHint
+    func getAccumulatedResponseTime() -> Int {
+        return accumulatedResponseTime
     }
     
-    public func getUsedAuditoryHint() -> Bool {
-        return usedAuditoryHint
+    func getBetPercentOfDepo() -> Double {
+        return betPercentOfDepo
     }
     
-    public func getUsedFiftyHint() -> Bool {
-        return usedFiftyHint
+    func getBetResult() -> Double {
+        return betResult
     }
 }

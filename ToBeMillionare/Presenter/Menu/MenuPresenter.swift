@@ -6,6 +6,10 @@ final class MenuPresenter {
     private weak var vc: PresentableMenuView?
     
     required init(){}
+    
+    internal var profile: ReadableProfile {
+        return ProfileService.getForcedSelected()
+    }
 }
 
 
@@ -21,7 +25,7 @@ extension MenuPresenter: ViewableMenuPresenter {
     }
     
     func didPressLeaderboard() {
-        vc?.performLeaderboardSegue()
+        vc?.performProgressSegue()
     }
     
     func didPressOptions() {
@@ -31,5 +35,21 @@ extension MenuPresenter: ViewableMenuPresenter {
     func viewDidAppear() {
         PresenterFactory.shared.dismisPresenter(clazz: CallFriendsPresenter.self)
         PresenterFactory.shared.dismisPresenter(clazz: PlayPresenter.self)
+    }
+    
+    func getAvaURL() -> URL {
+        return profile.getAva()
+    }
+    
+    func getCurrentStage() -> Int {
+        return profile.getStage()
+    }
+    
+    func getDepo() -> Double {
+        return profile.getDepo()
+    }
+    
+    func getCurrencySymbol() -> String {
+        return ProfileService.getCurrencySymbol()
     }
 }

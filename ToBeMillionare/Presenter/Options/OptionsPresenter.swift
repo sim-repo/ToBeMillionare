@@ -3,7 +3,7 @@ import Foundation
 
 final class OptionsPresenter {
     
-    private var profilePresenter: ReadableProfilePresenter & WritableProfilePresenter {
+    private var profilePresenter: ReadableProfilePresenter & OptionableProfilePresenter {
         let profilePresenter: ProfilePresenter = PresenterFactory.shared.getInstance()
         return profilePresenter
     }

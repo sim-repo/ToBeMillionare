@@ -24,7 +24,6 @@ class RoundShadowView: UIView {
 
     
     func layoutView() {
-      backgroundColor = TBMStyleKit.mainBackground
       layer.shadowOpacity = 1
       layer.shadowOffset = CGSize(width: 0, height: 0)
       layer.shadowRadius = 4

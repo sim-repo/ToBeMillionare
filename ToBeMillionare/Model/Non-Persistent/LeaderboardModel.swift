@@ -6,11 +6,11 @@ final class LeaderboardModel {
     private var id: Int
     private var rank: Int
     private var playerName: String
-    private var levelEnum: LevelEnum
+    private var levelEnum: RoundEnum
     private var score: Int
     
     
-    init(id: Int, rank: Int, playerName: String,  levelEnum: LevelEnum, score: Int){
+    init(id: Int, rank: Int, playerName: String,  levelEnum: RoundEnum, score: Int){
         self.id = id
         self.rank =  rank
         self.playerName = playerName
@@ -50,7 +50,7 @@ extension LeaderboardModel: ReadableLeaderboard {
         return score
     }
     
-    func getLevel() -> LevelEnum {
+    func getRound() -> RoundEnum {
         return levelEnum
     }
 }

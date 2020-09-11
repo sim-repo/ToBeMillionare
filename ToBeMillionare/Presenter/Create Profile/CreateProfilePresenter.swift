@@ -11,11 +11,6 @@ final class CreateProfilePresenter {
     
     private var template: TemplateProfileModel
     
-    private var profilePresenter: WritableProfilePresenter {
-        let presenter: ProfilePresenter = PresenterFactory.shared.getInstance()
-        return presenter as WritableProfilePresenter
-    }
-    
     required init(){
         template = RealmService.loadProfileTemplate()
     }
@@ -90,9 +85,8 @@ extension CreateProfilePresenter: ViewableCreateProfilePresenter {
             
         let created = ProfileModel(name: playerName!, fakeProfile: false, age: playerAge, ava: playerAva!)
         
-        ProfileService.saveProfile(profile: created)
+        ProfileService.saveNewProfile(created: created)
         
-        profilePresenter.setCreatedProfile(created: created)
         vc?.performMenuSegue()
     }
     

@@ -36,7 +36,7 @@ extension FinishPresenter: ViewableFinishPresenter {
         return profilePresenter.getSelected().getName()
     }
     
-    func getAward() -> String {
+    func getAward() -> Double {
         return playPresenter.getAward()
     }
 }
