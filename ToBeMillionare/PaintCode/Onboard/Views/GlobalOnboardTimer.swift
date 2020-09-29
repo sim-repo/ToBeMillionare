@@ -262,13 +262,13 @@ extension GlobalOnboardTimer {
     // moving:
     private func startPhase3() {
         //0.3
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.redrawPhase3), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.redrawPhase3), userInfo: nil, repeats: true)
     }
     
     @objc private func redrawPhase3(){
         guard let completions = completionsByPhase[2] else { return }
         //0.0005
-        checkPhase(current: &onboardAnimation, target: 0.2, step: 0.01, completions: completions)
+        checkPhase(current: &onboardAnimation, target: 0.2, step: 0.0005, completions: completions)
     }
     
     
@@ -315,7 +315,7 @@ extension GlobalOnboardTimer {
     
     @objc private func redrawPhase6(){
         guard let completions = completionsByPhase[5] else { return }
-        checkPhase(current: &onboardAnimation, target: 1.2, step: 0.01, completions: completions)
+        checkPhase(current: &onboardAnimation, target: 1.2, step: 0.0002, completions: completions)
     }
     
     private func startPhase7() {

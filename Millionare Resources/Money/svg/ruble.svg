@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 347.8 223.7" style="enable-background:new 0 0 347.8 223.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#669E87;}
+	.st1{fill:#A0A09F;}
+	.st2{fill:#DDEDE6;}
+	.st3{enable-background:new    ;}
+	.st4{clip-path:url(#SVGID_1_);}
+	.st5{clip-path:url(#SVGID_2_);}
+	.st6{fill:#EDECC7;}
+</style>
+<polygon class="st0" points="85.8,85.1 85.1,103.2 216.6,178.2 217.3,161 "/>
+<polygon class="st1" points="217.3,161 292.5,117.3 291.4,134.4 216.6,178.2 "/>
+<path class="st2" d="M109.3,117c0.5-5.8,1-11.7,1.4-17.5c-8.3-4.8-16.6-9.6-25-14.4c-0.2,6.1-0.5,12.1-0.7,18.2
+	C93.2,107.8,101.3,112.4,109.3,117z"/>
+<path class="st2" d="M108.6,121.4"/>
+<path class="st2" d="M216.6,178.2c0.3-5.7,0.5-11.4,0.8-17.1c-8.3-4.8-16.6-9.6-25-14.4c-0.2,5.8-0.5,11.6-0.7,17.4
+	C200,168.8,208.3,173.5,216.6,178.2z"/>
+<g>
+	<g>
+		<g class="st3">
+			<defs>
+				<polygon id="SVGID_55_" class="st3" points="85.5,85.2 161.7,40.9 293.4,117 217.3,161.2 				"/>
+			</defs>
+			<clipPath id="SVGID_1_">
+				<use xlink:href="#SVGID_55_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st4">
+				<g>
+					<g>
+						<g>
+							<g>
+								<defs>
+									<polyline id="SVGID_57_" points="293.1,117 161.6,41.1 85.8,85.1 217.3,161.1 293.1,117 									"/>
+								</defs>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_57_"  style="overflow:visible;"/>
+								</clipPath>
+								<g class="st5">
+									<defs>
+										<polyline id="SVGID_59_" points="217.3,161.2 85.5,85.2 161.7,40.9 293.4,117 217.3,161.2 										"/>
+									</defs>
+									<clipPath id="SVGID_3_">
+										<use xlink:href="#SVGID_59_"  style="overflow:visible;"/>
+									</clipPath>
+									<g style="clip-path:url(#SVGID_3_);">
+										
+											<image style="overflow:visible;" width="208" height="121" xlink:href="EE06E6D95144A4C.jpg"  transform="matrix(1 0 0 1 85.5169 40.8995)">
+										</image>
+									</g>
+								</g>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+<path class="st6" d="M200.1,151.1c25.1-14.8,50.1-29.7,75.2-44.5c-7.9-4.6-15.9-9.2-23.8-13.7c-25.2,14.8-50.3,29.6-75.5,44.4
+	C184,141.9,192.1,146.5,200.1,151.1z"/>
+<path class="st6" d="M175.7,154.9c0.1-5.9,0.2-11.7,0.3-17.6c8,4.6,16.1,9.2,24.1,13.8c-0.2,5.8-0.4,11.6-0.6,17.3L175.7,154.9z"/>
+</svg>

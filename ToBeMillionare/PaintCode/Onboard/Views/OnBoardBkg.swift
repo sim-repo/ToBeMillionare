@@ -18,13 +18,13 @@ class OnBoardBkg: UIView {
     
     override func draw(_ rect: CGRect) {
         if ScreenResolutionsEnum.screen() == .screen_47 {
-            OnboardKit.drawOnboardBkgView_47(frame: bounds, resizing: .aspectFit)
+            OnboardKit.drawOnboardBkgView_47(frame: bounds, resizing: .aspectFill)
         } else if ScreenResolutionsEnum.screen() == .screen_55 {
-            OnboardKit.drawOnboardBkgView_55(frame: bounds, resizing: .aspectFit)
+            OnboardKit.drawOnboardBkgView_55(frame: bounds, resizing: .aspectFill)
         } else if ScreenResolutionsEnum.screen() == .screen_58 {
-            OnboardKit.drawOnboardBkgView_58(frame: bounds, resizing: .aspectFit)
+            OnboardKit.drawOnboardBkgView_58(frame: bounds, resizing: .aspectFill)
         } else if ScreenResolutionsEnum.screen() == .screen_65 {
-            OnboardKit.drawOnboardBkgView_65(frame: bounds, resizing: .aspectFit)
+            OnboardKit.drawOnboardBkgView_65(frame: bounds, resizing: .aspectFill)
         }
     }
 }

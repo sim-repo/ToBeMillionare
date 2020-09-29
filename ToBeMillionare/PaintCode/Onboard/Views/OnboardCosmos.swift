@@ -22,7 +22,7 @@ class OnboardCosmos: UIView {
     
     override func draw(_ rect: CGRect) {
         OnboardKit.drawOnboardCosmos(frame: bounds,
-                                     resizing: .aspectFit,
+                                     resizing: .aspectFill,
                                      moveToOnboard: moveToOnboard,
                                      onboardAnimation: onboardAnimation,
                                      onboardOffset: 1)

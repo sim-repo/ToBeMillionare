@@ -21,7 +21,7 @@ class OnboardMeteorit: UIView {
     
     override func draw(_ rect: CGRect) {
         OnboardKit.drawOnboardMeteoritView(frame: bounds,
-                                           resizing: .aspectFit,
+                                           resizing: .aspectFill,
                                            onboardAnimation: onboardAnimation)
     }
 }

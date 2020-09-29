@@ -264,6 +264,8 @@ extension ProfileViewController: PresentableProfileView {
     func blink(itemIdx: Int) {
         blinkingItemIdx = itemIdx
         let indexPath = IndexPath(item: itemIdx, section: 0)
-        collectionView.reloadItems(at: [indexPath])
+        collectionView.performBatchUpdates({
+            collectionView.reloadItems(at: [indexPath])
+        }, completion: nil)
     }
 }
